@@ -66,36 +66,34 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
         <div className="fe-hero-time">SANTO ISIDORO · ERICEIRA · {now.time}</div>
       </div>
 
-      {/* Happening Now */}
-      <div className="fe-section-h">
-        <span className="label">Happening Now</span>
-        <span className="more">{live.length} live</span>
-      </div>
-      {live.length === 0 ? (
-        <div style={{ padding: "0 22px 6px", fontFamily: "var(--fe-display)", fontStyle: "italic", color: "var(--fe-fg-3)", fontSize: 14 }}>
-          The field rests between sessions.
-        </div>
-      ) : (
-        <div className="fe-now-rail">
-          {live.map(s => {
-            const venue = FE_VENUES[s.venue];
-            const speakers = (s.speakers || []).map(id => FE_PEOPLE_BY_ID[id]).filter(Boolean);
-            const speakerStr = speakers.map(p => p.name.replace("Sir ", "").replace("Dr. ", "")).slice(0, 2).join(" · ") + (speakers.length > 2 ? ` +${speakers.length - 2}` : "");
-            const pct = Math.min(100, ((FE_toMinutes(now.time) - FE_toMinutes(s.start)) / (FE_toMinutes(s.end) - FE_toMinutes(s.start))) * 100);
-            return (
-              <div key={s.id} className="fe-now-mini" onClick={() => onOpen(s.id)}>
-                <div className="row1">
-                  <span className="dot-venue" style={{ background: `var(--fe-venue-${venue.color})` }} />
-                  <span className="venue">{venue.name}</span>
-                  <span className="time">{s.start}—{s.end}</span>
+      {/* Happening Now — only shown when sessions are actually live */}
+      {live.length > 0 && (
+        <>
+          <div className="fe-section-h">
+            <span className="label">Happening Now</span>
+            <span className="more">{live.length} live</span>
+          </div>
+          <div className="fe-now-rail">
+            {live.map(s => {
+              const venue = FE_VENUES[s.venue];
+              const speakers = (s.speakers || []).map(id => FE_PEOPLE_BY_ID[id]).filter(Boolean);
+              const speakerStr = speakers.map(p => p.name.replace("Sir ", "").replace("Dr. ", "")).slice(0, 2).join(" · ") + (speakers.length > 2 ? ` +${speakers.length - 2}` : "");
+              const pct = Math.min(100, ((FE_toMinutes(now.time) - FE_toMinutes(s.start)) / (FE_toMinutes(s.end) - FE_toMinutes(s.start))) * 100);
+              return (
+                <div key={s.id} className="fe-now-mini" onClick={() => onOpen(s.id)}>
+                  <div className="row1">
+                    <span className="dot-venue" style={{ background: `var(--fe-venue-${venue.color})` }} />
+                    <span className="venue">{venue.name}</span>
+                    <span className="time">{s.start}—{s.end}</span>
+                  </div>
+                  <h3 className="title">{s.title}</h3>
+                  {speakerStr && <div className="people">{speakerStr}</div>}
+                  <div className="bar"><span style={{ width: `${pct}%` }} /></div>
                 </div>
-                <h3 className="title">{s.title}</h3>
-                {speakerStr && <div className="people">{speakerStr}</div>}
-                <div className="bar"><span style={{ width: `${pct}%` }} /></div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </>
       )}
 
       {/* Coming Up */}
