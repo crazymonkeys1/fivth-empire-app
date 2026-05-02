@@ -1,6 +1,6 @@
 import React from 'react';
 import { FEIcon } from '../icons.jsx';
-import { FETopBar } from '../parts.jsx';
+import { FETopBar, FEAvatar } from '../parts.jsx';
 import {
   FE_SESSIONS, FE_VENUES, FE_TRACKS, FE_PEOPLE_BY_ID, FE_dayOf,
 } from '../data.js';
@@ -44,7 +44,7 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson }) => {
             <h3>{speakers.length === 1 ? "Speaker" : "Speakers"}</h3>
             {speakers.map(p => (
               <div key={p.id} className="fe-speaker-row" onClick={() => onOpenPerson(p.id)}>
-                <div className="fe-avatar">{p.initials}</div>
+                <FEAvatar person={p} />
                 <div>
                   <div className="name">{p.name}</div>
                   <div className="role">{p.role}</div>
@@ -96,7 +96,7 @@ export const FEPersonDetail = ({ id, onBack, onOpen }) => {
       />
       <div className="fe-scroll">
         <div className="fe-speaker-hero">
-          <div className="fe-avatar lg">{p.initials}</div>
+          <FEAvatar person={p} size="lg" />
           <div className="name">{p.name}</div>
           <div className="role">{p.role}</div>
           {p.tag && <div className="tag">{p.tag}</div>}

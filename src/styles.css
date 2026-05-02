@@ -883,6 +883,8 @@ html, body, #root {
   letter-spacing: 0.02em;
 }
 .fe-avatar.lg { width: 96px; height: 96px; font-size: 30px; }
+.fe-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fe-speakers-rail .ring img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
 .fe-speaker-row .name {
   font-family: var(--fe-display);
   font-size: 17px;

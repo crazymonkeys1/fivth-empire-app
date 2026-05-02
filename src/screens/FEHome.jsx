@@ -6,6 +6,7 @@ import {
   FE_SESSIONS,
 } from '../data.js';
 import { useClock } from '../ClockContext.jsx';
+import { FEAvatar } from '../parts.jsx';
 
 export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setTab }) => {
   const now = useClock();
@@ -136,7 +137,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
       <div className="fe-speakers-rail">
         {todaysSpeakers.map(p => (
           <button key={p.id} className="fe-spk-card" onClick={() => onOpenPerson(p.id)}>
-            <div className="ring"><div className="initials">{p.initials}</div></div>
+            <FEAvatar person={p} size="sm" />
             <div className="name">{p.name.replace("Sir ", "").replace("Dr. ", "")}</div>
             <div className="role">{p.role}</div>
           </button>

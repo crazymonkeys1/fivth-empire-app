@@ -1,6 +1,6 @@
 import React from 'react';
 import { FEIcon } from '../icons.jsx';
-import { FETopBar } from '../parts.jsx';
+import { FETopBar, FEAvatar } from '../parts.jsx';
 import { FE_PEOPLE } from '../data.js';
 
 export const FESpeakers = ({ onOpenPerson, themeBtn }) => {
@@ -28,7 +28,7 @@ export const FESpeakers = ({ onOpenPerson, themeBtn }) => {
         <div style={{ padding: "10px 22px 30px" }}>
           {filtered.map(p => (
             <div key={p.id} className="fe-speaker-row" onClick={() => onOpenPerson(p.id)}>
-              <div className="fe-avatar">{p.initials}</div>
+              <FEAvatar person={p} />
               <div>
                 <div className="name">{p.name}</div>
                 <div className="role">{p.role}</div>
