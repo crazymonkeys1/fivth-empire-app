@@ -88,83 +88,67 @@ export const FE_PEOPLE = [
 export const FE_PEOPLE_BY_ID = Object.fromEntries(FE_PEOPLE.map(p => [p.id, p]));
 
 export const FE_SESSIONS = [
-  // ========== Sanctum Stage ==========
-  { id: "sa01", day: 2, start: "09:00", end: "10:00", title: "Arrival & Check-in", venue: "sanctum", track: "ritual", speakers: [], note: "Doors open." },
-  { id: "sa02", day: 2, start: "10:00", end: "10:40", title: "Opening Ceremony", venue: "sanctum", track: "ritual", speakers: [], desc: "Welcome. The lighting of the FiVth flame." },
-  { id: "sa03", day: 2, start: "10:40", end: "11:20", title: "The Hidden Architecture of Reality", venue: "sanctum", track: "wisdom", speakers: ["reg"], desc: "Sir Robert E. Grant on the geometry beneath what we call the world." },
-  { id: "sa04", day: 2, start: "11:20", end: "12:00", title: "The Transition We Are", venue: "sanctum", track: "wisdom", speakers: ["charles"], desc: "Charles Eisenstein on the transition we are living and the more beautiful world our hearts know is possible." },
-  { id: "sa05", day: 2, start: "12:00", end: "12:30", title: "Breathwork Journey", venue: "sanctum", track: "ritual", speakers: ["camille"], desc: "Camille Lorenzetti guides a breathwork journey." },
-  { id: "sa06", day: 2, start: "12:30", end: "14:00", title: "Lunch and Chill", venue: "sanctum", track: "community", speakers: [], note: "Open break." },
-  { id: "sa07", day: 2, start: "14:00", end: "15:00", title: "Giza · World Premiere", venue: "sanctum", track: "wisdom", speakers: ["reg", "biondi"], desc: "Sir Robert E. Grant and Dr. Filippo Biondi present emerging findings — what SAR-Doppler tomography is now revealing beneath the Giza plateau.", capacity: "Full house" },
-  { id: "sa08", day: 2, start: "15:00", end: "15:30", title: "Soul Whisper", venue: "sanctum", track: "sound", speakers: ["tammy"], desc: "Tammy Weis · songs from Soul Whisper and the Fernando Pessoa Miracles project." },
-  { id: "sa09", day: 2, start: "15:30", end: "16:20", title: "The Memory Beneath History", venue: "sanctum", track: "wisdom", speakers: ["sarah"], desc: "Sarah Breksman Cosme on the memory underneath what is recorded." },
-  { id: "sa10", day: 2, start: "16:20", end: "16:40", title: "Poems of the Ancient Future", venue: "sanctum", track: "ritual", speakers: ["luke"], desc: "Luke Kohen reads from the ancient future." },
-  { id: "sa11", day: 2, start: "16:40", end: "17:50", title: "Awakening the Holy Grail", venue: "sanctum", track: "wisdom", speakers: ["hogan"], desc: "Timothy Hogan, Grand Master of the Order of the Temple of Solomon." },
-  { id: "sa12", day: 2, start: "17:50", end: "18:30", title: "The age you were born into is ending. You Are Here", venue: "sanctum", track: "wisdom", speakers: ["debra"], desc: "Debra Silverman's element-based reading of this moment." },
-  { id: "sa13", day: 2, start: "18:30", end: "19:05", title: "Your body already knows how to heal itself", venue: "sanctum", track: "wisdom", speakers: ["chervin"], desc: "Chervin Jafarieh on functional medicine, epigenetics, and what coherence actually feels like." },
-  { id: "sa14", day: 2, start: "19:05", end: "20:00", title: "The Holy Grail in the Stars", venue: "sanctum", track: "wisdom", speakers: ["comber"], desc: "Robert James Cumber on the grail as cosmology — astrology, sacred geometry, and the I Ching as one frame." },
-  { id: "sa15", day: 2, start: "20:00", end: "20:30", title: "Closing", venue: "sanctum", track: "ritual", speakers: [], desc: "We close the Sanctum Stage." },
+  // ========== Day 1 — Sunday, May 3 — Full Programme ==========
 
-  // ========== Fernando Pessoa Stage ==========
-  { id: "pe01", day: 2, start: "10:30", end: "10:40", title: "O Chamado", venue: "pessoa", track: "ritual", speakers: ["barbara"], desc: "Bárbara Barradas interpreta \"O Infante\". Um chamado para abrir o palco." },
-  { id: "pe02", day: 2, start: "10:40", end: "11:00", title: "Abertura do Campo", venue: "pessoa", track: "ritual", speakers: ["cristiana"], desc: "Cristiana Vaz Franco abre o campo do Palco Fernando Pessoa." },
-  { id: "pe03", day: 2, start: "11:00", end: "12:00", title: "A Alma Secreta de Portugal", venue: "pessoa", track: "wisdom", speakers: ["medeiros-jose"], desc: "José Medeiros sobre a corrente subterrânea que faz Portugal." },
-  { id: "pe04", day: 2, start: "12:00", end: "12:50", title: "O Quinto Império do Espírito Santo", venue: "pessoa", track: "wisdom", speakers: ["anes"], desc: "José Manuel Anes sobre a tradição do Quinto Império do Espírito Santo." },
-  { id: "pe05", day: 2, start: "12:50", end: "13:50", title: "Lunch and Chill", venue: "pessoa", track: "community", speakers: [], note: "Open break." },
-  { id: "pe06", day: 2, start: "13:50", end: "14:30", title: "As camadas invisíveis do Quinto Império", venue: "pessoa", track: "community", speakers: ["alex", "teresa", "luis", "duarte"], desc: "Painel: Alexandre Gabriel, Teresa Mesquitela, Luís Costa Campos, José Gil Duarte." },
-  { id: "pe07", day: 2, start: "14:30", end: "15:25", title: "Teoria e Prática do Quinto (não) Império", venue: "pessoa", track: "wisdom", speakers: ["paulo"], desc: "Paulo Borges sobre o Quinto Império — entre teoria e prática, entre o que é e o que recusa ser." },
-  { id: "pe08", day: 2, start: "15:25", end: "16:20", title: "Identidade e Tempo do Quinto Império", venue: "pessoa", track: "wisdom", speakers: ["medeiros-joao"], desc: "João Medeiros sobre a identidade e o tempo no Quinto Império." },
-  { id: "pe09", day: 2, start: "16:20", end: "17:15", title: "Do Espírito para a Matéria", venue: "pessoa", track: "ritual", speakers: ["cristiana"], desc: "Cristiana Vaz Franco · da palavra à forma." },
-  { id: "pe10", day: 2, start: "17:15", end: "18:00", title: "O Futuro é Ancestral", venue: "pessoa", track: "ritual", speakers: ["marta"], desc: "Marta Sundari · uma transmissão sobre tempo, voz e raiz." },
-  { id: "pe11", day: 2, start: "18:00", end: "18:30", title: "Encerramento do Palco", venue: "pessoa", track: "ritual", speakers: [], desc: "Encerramento do Palco Fernando Pessoa." },
-  { id: "pe12", day: 2, start: "18:30", end: "19:00", title: "Poesia", venue: "pessoa", track: "ritual", speakers: ["daniela"], desc: "Daniela Gandra. A palavra como ponte — o tempo é dela.", note: "Surge entre os intervalos do programa." },
+  // Sanctum Stage
+  { id: "sa01", day: 1, start: "09:00", end: "10:00", title: "Arrival & Check-in", venue: "sanctum", track: "ritual", speakers: [], note: "Doors open." },
+  { id: "sa02", day: 1, start: "10:00", end: "10:40", title: "Opening Ceremony", venue: "sanctum", track: "ritual", speakers: [], desc: "Welcome. The lighting of the FiVth flame." },
+  { id: "sa03", day: 1, start: "10:40", end: "11:20", title: "The Hidden Architecture of Reality", venue: "sanctum", track: "wisdom", speakers: ["reg"], desc: "Sir Robert E. Grant on the geometry beneath what we call the world." },
+  { id: "sa04", day: 1, start: "11:20", end: "12:00", title: "The Transition We Are", venue: "sanctum", track: "wisdom", speakers: ["charles"], desc: "Charles Eisenstein on the transition we are living and the more beautiful world our hearts know is possible." },
+  { id: "sa05", day: 1, start: "12:00", end: "12:30", title: "Breathwork Journey", venue: "sanctum", track: "ritual", speakers: ["camille"], desc: "Camille Lorenzetti guides a breathwork journey." },
+  { id: "sa06", day: 1, start: "12:30", end: "14:00", title: "Lunch and Chill", venue: "sanctum", track: "community", speakers: [], note: "Open break." },
+  { id: "sa07", day: 1, start: "14:00", end: "15:00", title: "Giza · World Premiere", venue: "sanctum", track: "wisdom", speakers: ["reg", "biondi"], desc: "Sir Robert E. Grant and Dr. Filippo Biondi present emerging findings — what SAR-Doppler tomography is now revealing beneath the Giza plateau.", capacity: "Full house" },
+  { id: "sa08", day: 1, start: "15:00", end: "15:30", title: "Soul Whisper", venue: "sanctum", track: "sound", speakers: ["tammy"], desc: "Tammy Weis · songs from Soul Whisper and the Fernando Pessoa Miracles project." },
+  { id: "sa09", day: 1, start: "15:30", end: "16:20", title: "The Memory Beneath History", venue: "sanctum", track: "wisdom", speakers: ["sarah"], desc: "Sarah Breksman Cosme on the memory underneath what is recorded." },
+  { id: "sa10", day: 1, start: "16:20", end: "16:40", title: "Poems of the Ancient Future", venue: "sanctum", track: "ritual", speakers: ["luke"], desc: "Luke Kohen reads from the ancient future." },
+  { id: "sa11", day: 1, start: "16:40", end: "17:50", title: "Awakening the Holy Grail", venue: "sanctum", track: "wisdom", speakers: ["hogan"], desc: "Timothy Hogan, Grand Master of the Order of the Temple of Solomon." },
+  { id: "sa12", day: 1, start: "17:50", end: "18:30", title: "The age you were born into is ending. You Are Here", venue: "sanctum", track: "wisdom", speakers: ["debra"], desc: "Debra Silverman's element-based reading of this moment." },
+  { id: "sa13", day: 1, start: "18:30", end: "19:05", title: "Your body already knows how to heal itself", venue: "sanctum", track: "wisdom", speakers: ["chervin"], desc: "Chervin Jafarieh on functional medicine, epigenetics, and what coherence actually feels like." },
+  { id: "sa14", day: 1, start: "19:05", end: "20:00", title: "The Holy Grail in the Stars", venue: "sanctum", track: "wisdom", speakers: ["comber"], desc: "Robert James Cumber on the grail as cosmology — astrology, sacred geometry, and the I Ching as one frame." },
+  { id: "sa15", day: 1, start: "20:00", end: "20:30", title: "Closing", venue: "sanctum", track: "ritual", speakers: [], desc: "We close the Sanctum Stage." },
 
-  // ========== Root Stage ==========
-  { id: "ro01", day: 2, start: "08:00", end: "09:00", title: "Arrival & Check-in", venue: "root", track: "ritual", speakers: [], note: "Doors open." },
-  { id: "ro02", day: 2, start: "09:00", end: "10:00", title: "Yoga Flow in the Meadow", venue: "root", track: "ritual", speakers: ["julia"], desc: "Julia Pieper · slow flow under the trees." },
-  { id: "ro03", day: 2, start: "10:00", end: "11:00", title: "Openheart Breathwork", venue: "root", track: "ritual", speakers: ["nuno", "lisa"], desc: "Nuno Kampos and Lisa Jones · open the heart, open the day." },
-  { id: "ro04", day: 2, start: "11:00", end: "11:11", title: "Opening Ceremony", venue: "root", track: "ritual", speakers: [], desc: "We open the Root Stage." },
-  { id: "ro05", day: 2, start: "11:11", end: "12:35", title: "Boogie & Brunch", venue: "root", track: "sound", speakers: [], desc: "Music, movement, nourishment. The feast that anchors the day." },
-  { id: "ro06", day: 2, start: "12:35", end: "14:00", title: "Where Science Meets the Sacred", venue: "root", track: "community", speakers: ["jennifer"], desc: "Jennifer K. Hill on what happens when science actually meets the sacred." },
-  { id: "ro07", day: 2, start: "14:00", end: "15:00", title: "The Sacred Union Lives Here", venue: "root", track: "ritual", speakers: ["sofia"], desc: "Sofia Sundari · the sacred union as a daily practice." },
-  { id: "ro08", day: 2, start: "15:00", end: "15:45", title: "Humanity transforms when we return to our original design", venue: "root", track: "community", speakers: ["lara", "shani", "alessa", "lucian"], desc: "Panel · Dr. Lara Wegener, Shani Leher, Alessa Berg. Moderated by Lucian Tarowski." },
-  { id: "ro09", day: 2, start: "15:45", end: "17:00", title: "Next Level Woman", venue: "root", track: "community", speakers: ["nevsah"], desc: "Nevsah Karamehmet on the breath, the body, and the next-level woman." },
-  { id: "ro10", day: 2, start: "17:00", end: "19:00", title: "Song, voice, rhythm, and medicine", venue: "root", track: "sound", speakers: ["jack", "reachel", "vinay", "baltazar"], desc: "Jack Weaver, Reachel Singh, Vinay Vayas, Baltazar Molina · medicine music." },
-  { id: "ro11", day: 2, start: "19:00", end: "20:00", title: "Sunset Concert", venue: "root", track: "sound", speakers: ["sam"], desc: "Sam Garrett · sunset concert." },
-  { id: "ro12", day: 2, start: "20:00", end: "22:00", title: "DJ set & Movement", venue: "root", track: "sound", speakers: ["juliette", "joanna", "avishag"], desc: "Juliette Invigor, Joanna Lewins, Avishag Gaya · the late dancefloor." },
-  { id: "ro13", day: 2, start: "22:00", end: "22:30", title: "Closing Ceremony", venue: "root", track: "ritual", speakers: [], desc: "We close the field together." },
+  // Fernando Pessoa Stage
+  { id: "pe01", day: 1, start: "10:30", end: "10:40", title: "O Chamado", venue: "pessoa", track: "ritual", speakers: ["barbara"], desc: "Bárbara Barradas interpreta \"O Infante\". Um chamado para abrir o palco." },
+  { id: "pe02", day: 1, start: "10:40", end: "11:00", title: "Abertura do Campo", venue: "pessoa", track: "ritual", speakers: ["cristiana"], desc: "Cristiana Vaz Franco abre o campo do Palco Fernando Pessoa." },
+  { id: "pe03", day: 1, start: "11:00", end: "12:00", title: "A Alma Secreta de Portugal", venue: "pessoa", track: "wisdom", speakers: ["medeiros-jose"], desc: "José Medeiros sobre a corrente subterrânea que faz Portugal." },
+  { id: "pe04", day: 1, start: "12:00", end: "12:50", title: "O Quinto Império do Espírito Santo", venue: "pessoa", track: "wisdom", speakers: ["anes"], desc: "José Manuel Anes sobre a tradição do Quinto Império do Espírito Santo." },
+  { id: "pe05", day: 1, start: "12:50", end: "13:50", title: "Lunch and Chill", venue: "pessoa", track: "community", speakers: [], note: "Open break." },
+  { id: "pe06", day: 1, start: "13:50", end: "14:30", title: "As camadas invisíveis do Quinto Império", venue: "pessoa", track: "community", speakers: ["alex", "teresa", "luis", "duarte"], desc: "Painel: Alexandre Gabriel, Teresa Mesquitela, Luís Costa Campos, José Gil Duarte." },
+  { id: "pe07", day: 1, start: "14:30", end: "15:25", title: "Teoria e Prática do Quinto (não) Império", venue: "pessoa", track: "wisdom", speakers: ["paulo"], desc: "Paulo Borges sobre o Quinto Império — entre teoria e prática, entre o que é e o que recusa ser." },
+  { id: "pe08", day: 1, start: "15:25", end: "16:20", title: "Identidade e Tempo do Quinto Império", venue: "pessoa", track: "wisdom", speakers: ["medeiros-joao"], desc: "João Medeiros sobre a identidade e o tempo no Quinto Império." },
+  { id: "pe09", day: 1, start: "16:20", end: "17:15", title: "Do Espírito para a Matéria", venue: "pessoa", track: "ritual", speakers: ["cristiana"], desc: "Cristiana Vaz Franco · da palavra à forma." },
+  { id: "pe10", day: 1, start: "17:15", end: "18:00", title: "O Futuro é Ancestral", venue: "pessoa", track: "ritual", speakers: ["marta"], desc: "Marta Sundari · uma transmissão sobre tempo, voz e raiz." },
+  { id: "pe11", day: 1, start: "18:00", end: "18:30", title: "Encerramento do Palco", venue: "pessoa", track: "ritual", speakers: [], desc: "Encerramento do Palco Fernando Pessoa." },
+  { id: "pe12", day: 1, start: "18:30", end: "19:00", title: "Poesia", venue: "pessoa", track: "ritual", speakers: ["daniela"], desc: "Daniela Gandra. A palavra como ponte — o tempo é dela.", note: "Surge entre os intervalos do programa." },
 
-  // ========== Day 1 — Friday, May 1 — "The Opening" ==========
-  { id: "ro01-d1", day: 1, start: "14:00", end: "18:00", title: "Arrival & Welcome", venue: "root", track: "ritual", speakers: [], note: "Doors open. Tea, registration, settling in." },
-  { id: "ro02-d1", day: 1, start: "16:30", end: "17:30", title: "Tour of the Field", venue: "root", track: "community", speakers: [], desc: "A guided walk through the three stages and the meadow. Bring water." },
-  { id: "ro03-d1", day: 1, start: "18:00", end: "19:00", title: "Opening Yoga & Breath", venue: "root", track: "ritual", speakers: ["julia"], desc: "Julia Pieper · slow flow under the trees as the day softens." },
-  { id: "sa01-d1", day: 1, start: "19:30", end: "20:30", title: "Opening Ceremony of the FiVth", venue: "sanctum", track: "ritual", speakers: [], desc: "We light the FiVth flame. The festival opens." },
-  { id: "sa02-d1", day: 1, start: "20:30", end: "21:15", title: "Welcome Words", venue: "sanctum", track: "wisdom", speakers: ["reg", "charles"], desc: "Sir Robert E. Grant and Charles Eisenstein open the field with a short conversation about the days ahead." },
-  { id: "pe01-d1", day: 1, start: "21:15", end: "21:45", title: "O Chamado · The Calling", venue: "pessoa", track: "ritual", speakers: ["barbara", "daniela"], desc: "Bárbara Barradas e Daniela Gandra interpretam Pessoa. The opening poem." },
-  { id: "ro04-d1", day: 1, start: "20:00", end: "22:00", title: "Welcome Feast", venue: "root", track: "community", speakers: [], desc: "A long table dinner under the lights. Family-style. Vegan + omnivore." },
-  { id: "ro05-d1", day: 1, start: "22:00", end: "00:30", title: "Opening Night Dancefloor", venue: "root", track: "sound", speakers: ["juliette", "joanna"], desc: "Juliette Invigor + Joanna Lewins ease the field into motion." },
+  // Root Stage
+  { id: "ro01", day: 1, start: "08:00", end: "09:00", title: "Arrival & Check-in", venue: "root", track: "ritual", speakers: [], note: "Doors open." },
+  { id: "ro02", day: 1, start: "09:00", end: "10:00", title: "Yoga Flow in the Meadow", venue: "root", track: "ritual", speakers: ["julia"], desc: "Julia Pieper · slow flow under the trees." },
+  { id: "ro03", day: 1, start: "10:00", end: "11:00", title: "Openheart Breathwork", venue: "root", track: "ritual", speakers: ["nuno", "lisa"], desc: "Nuno Kampos and Lisa Jones · open the heart, open the day." },
+  { id: "ro04", day: 1, start: "11:00", end: "11:11", title: "Opening Ceremony", venue: "root", track: "ritual", speakers: [], desc: "We open the Root Stage." },
+  { id: "ro05", day: 1, start: "11:11", end: "12:35", title: "Boogie & Brunch", venue: "root", track: "sound", speakers: [], desc: "Music, movement, nourishment. The feast that anchors the day." },
+  { id: "ro06", day: 1, start: "12:35", end: "14:00", title: "Where Science Meets the Sacred", venue: "root", track: "community", speakers: ["jennifer"], desc: "Jennifer K. Hill on what happens when science actually meets the sacred." },
+  { id: "ro07", day: 1, start: "14:00", end: "15:00", title: "The Sacred Union Lives Here", venue: "root", track: "ritual", speakers: ["sofia"], desc: "Sofia Sundari · the sacred union as a daily practice." },
+  { id: "ro08", day: 1, start: "15:00", end: "15:45", title: "Humanity transforms when we return to our original design", venue: "root", track: "community", speakers: ["lara", "shani", "alessa", "lucian"], desc: "Panel · Dr. Lara Wegener, Shani Leher, Alessa Berg. Moderated by Lucian Tarowski." },
+  { id: "ro09", day: 1, start: "15:45", end: "17:00", title: "Next Level Woman", venue: "root", track: "community", speakers: ["nevsah"], desc: "Nevsah Karamehmet on the breath, the body, and the next-level woman." },
+  { id: "ro10", day: 1, start: "17:00", end: "19:00", title: "Song, voice, rhythm, and medicine", venue: "root", track: "sound", speakers: ["jack", "reachel", "vinay", "baltazar"], desc: "Jack Weaver, Reachel Singh, Vinay Vayas, Baltazar Molina · medicine music." },
+  { id: "ro11", day: 1, start: "19:00", end: "20:00", title: "Sunset Concert", venue: "root", track: "sound", speakers: ["sam"], desc: "Sam Garrett · sunset concert." },
+  { id: "ro12", day: 1, start: "20:00", end: "22:00", title: "DJ set & Movement", venue: "root", track: "sound", speakers: ["juliette", "joanna", "avishag"], desc: "Juliette Invigor, Joanna Lewins, Avishag Gaya · the late dancefloor." },
+  { id: "ro13", day: 1, start: "22:00", end: "22:30", title: "Closing Ceremony", venue: "root", track: "ritual", speakers: [], desc: "We close the field together." },
 
-  // ========== Day 3 — Sunday, May 3 — "The Closing" ==========
-  { id: "ro01-d3", day: 3, start: "08:00", end: "09:00", title: "Arrival & Coffee", venue: "root", track: "community", speakers: [], note: "Slow morning. The kettles are on." },
-  { id: "ro02-d3", day: 3, start: "09:00", end: "10:00", title: "Yoga Flow in the Meadow", venue: "root", track: "ritual", speakers: ["julia"], desc: "Julia Pieper · slow Sunday flow." },
-  { id: "ro03-d3", day: 3, start: "10:00", end: "11:00", title: "Integration Breathwork", venue: "root", track: "ritual", speakers: ["nuno", "lisa"], desc: "Nuno Kampos and Lisa Jones · land what arrived." },
-  { id: "sa01-d3", day: 3, start: "11:00", end: "12:00", title: "What Stays With Us", venue: "sanctum", track: "wisdom", speakers: ["debra"], desc: "Debra Silverman returns to close her thread — what to take, what to leave." },
-  { id: "sa02-d3", day: 3, start: "12:00", end: "13:00", title: "Carrying the FiVth Home", venue: "sanctum", track: "wisdom", speakers: ["paulo", "anes"], desc: "Paulo Borges and José Manuel Anes in conversation — practice, after." },
-  { id: "sa03-d3", day: 3, start: "13:00", end: "14:30", title: "Closing Lunch", venue: "sanctum", track: "community", speakers: [], note: "The last meal together." },
-  { id: "pe01-d3", day: 3, start: "15:00", end: "15:45", title: "O Futuro é Ancestral", venue: "pessoa", track: "ritual", speakers: ["marta"], desc: "Marta Sundari · a transmission about returning home." },
-  { id: "pe02-d3", day: 3, start: "15:45", end: "16:30", title: "Encerramento em Palavras", venue: "pessoa", track: "ritual", speakers: ["daniela"], desc: "Daniela Gandra fecha o palco em poesia." },
-  { id: "ro04-d3", day: 3, start: "17:00", end: "18:00", title: "Sunset Concert · Goodbye Set", venue: "root", track: "sound", speakers: ["sam"], desc: "Sam Garrett one last time. Sunset over Santo Isidoro." },
-  { id: "sa04-d3", day: 3, start: "18:30", end: "20:00", title: "Closing Ceremony", venue: "sanctum", track: "ritual", speakers: [], desc: "We close the FiVth flame. The field returns to itself. Until next year." },
+  // ========== Day 2 — Monday, May 4 — TBD ==========
+
+  // ========== Day 3 — Tuesday, May 5 — TBD ==========
 ];
 
 export const FE_DAYS = [
-  { n: 1, label: "Sun", date: "May 3", long: "Sunday · May 3",   title: "The Opening" },
-  { n: 2, label: "Mon", date: "May 4", long: "Monday · May 4",   title: "The FiVth" },
-  { n: 3, label: "Tue", date: "May 5", long: "Tuesday · May 5",  title: "The Closing" },
+  { n: 1, label: "Sun", date: "May 3", long: "Sunday · May 3",   title: "The FiVth" },
+  { n: 2, label: "Mon", date: "May 4", long: "Monday · May 4",   title: "Day Two" },
+  { n: 3, label: "Tue", date: "May 5", long: "Tuesday · May 5",  title: "Day Three" },
 ];
 
 // "Now" — pinned to a moment that lights up the Giza premiere on the Sanctum Stage.
-export const FE_NOW = { day: 2, time: "14:25" };
+export const FE_NOW = { day: 1, time: "14:25" };
 
 export const FE_toMinutes = (hhmm) => {
   const [h, m] = hhmm.split(":").map(Number);

@@ -7,7 +7,7 @@ const FESTIVAL_DATES = {
   '2026-05-05': 3,
 };
 
-const DEMO = { day: 2, time: '14:25', isLive: false };
+const DEMO = { day: 1, time: '14:25', isLive: false };
 
 export const getLisbonNow = () => {
   try {
