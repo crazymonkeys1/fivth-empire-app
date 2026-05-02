@@ -5,7 +5,7 @@ import {
   FE_SESSIONS, FE_VENUES, FE_TRACKS, FE_PEOPLE_BY_ID, FE_dayOf,
 } from '../data.js';
 
-export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson }) => {
+export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn }) => {
   const s = FE_SESSIONS.find(x => x.id === id);
   if (!s) return null;
   const venue = FE_VENUES[s.venue];
@@ -17,7 +17,7 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson }) => {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
-        left={<button className="fe-back" onClick={onBack}><FEIcon name="arrowL" size={14} />Back</button>}
+        left={backBtn}
         sub="Session"
         right={<button className="fe-iconbtn"><FEIcon name="share" size={16} /></button>}
       />
@@ -82,7 +82,7 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson }) => {
   );
 };
 
-export const FEPersonDetail = ({ id, onBack, onOpen }) => {
+export const FEPersonDetail = ({ id, onBack, onOpen, backBtn }) => {
   const p = FE_PEOPLE_BY_ID[id];
   if (!p) return null;
   const sessions = FE_SESSIONS.filter(s => (s.speakers || []).includes(id));
@@ -90,7 +90,7 @@ export const FEPersonDetail = ({ id, onBack, onOpen }) => {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
-        left={<button className="fe-back" onClick={onBack}><FEIcon name="arrowL" size={14} />Back</button>}
+        left={backBtn}
         sub="Voice"
         right={<button className="fe-iconbtn"><FEIcon name="share" size={16} /></button>}
       />

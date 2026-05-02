@@ -65,7 +65,7 @@ export const FETopBar = ({ left, title, sub, right }) => (
   </div>
 );
 
-export const FETabBar = ({ tab, onChange }) => {
+export const FETabBar = ({ tab, onChange, hidden }) => {
   const tabs = [
     { id: "home", label: "Now", icon: "home" },
     { id: "schedule", label: "Schedule", icon: "calendar" },
@@ -74,7 +74,7 @@ export const FETabBar = ({ tab, onChange }) => {
     { id: "partners", label: "Partners", icon: "partners" },
   ];
   return (
-    <div className="fe-tabbar">
+    <div className={"fe-tabbar" + (hidden ? " tab-hidden" : "")}>
       {tabs.map(t => (
         <button
           key={t.id}

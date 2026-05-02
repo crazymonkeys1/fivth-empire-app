@@ -10,10 +10,14 @@ import { FEMap } from './screens/FEMap.jsx';
 import { FEPartners, FEPartnerDetail } from './screens/FEPartners.jsx';
 import { FEBackstage } from './screens/FEBackstage.jsx';
 
+const TAB_LABELS = { home: "Now", schedule: "Schedule", saved: "Saved", speakers: "Voices", partners: "Partners" };
+
 const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
-  const [tab, setTab] = React.useState("home");
+  const [tab, setTabState] = React.useState("home");
   const [stack, setStack] = React.useState([]);
   const [localTheme, setLocalTheme] = React.useState(null);
+  const [tabHidden, setTabHidden] = React.useState(false);
+  const lastScrollY = React.useRef(0);
   const activeTheme = localTheme ?? theme;
   const [savedSet, setSavedSet] = React.useState(() => {
     try {
@@ -21,6 +25,24 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
       return new Set(raw ? JSON.parse(raw) : ["sa07", "sa11", "pe07"]);
     } catch { return new Set(["sa07", "sa11", "pe07"]); }
   });
+
+  const setTab = (t) => { setTabState(t); setTabHidden(false); lastScrollY.current = 0; };
+
+  const handleScroll = React.useCallback((e) => {
+    const el = e.target;
+    if (!el.classList?.contains('fe-scroll')) return;
+    const y = el.scrollTop;
+    const prev = lastScrollY.current;
+    if (y > prev + 8) setTabHidden(true);
+    else if (y < prev - 8 || y <= 0) setTabHidden(false);
+    lastScrollY.current = y;
+  }, []);
+
+  const onBack = () => {
+    setStack(s => s.slice(0, -1));
+    setTabHidden(false);
+    lastScrollY.current = 0;
+  };
 
   const onToggle = (id) => {
     setSavedSet(prev => {
@@ -34,11 +56,10 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
   const onOpenSession = (id) => {
     if (id === "__backstage__") setStack(s => [...s, { type: "backstage" }]);
     else if (id === "__map__") setStack(s => [...s, { type: "map" }]);
-    else setStack(s => [...s, { type: "session", id }]);
+    else setStack(s => [...s, { type: "session", id, from: TAB_LABELS[tab] }]);
   };
-  const onOpenPerson = (id) => setStack(s => [...s, { type: "person", id }]);
-  const onOpenPartner = (id) => setStack(s => [...s, { type: "partner", id }]);
-  const onBack = () => setStack(s => s.slice(0, -1));
+  const onOpenPerson = (id) => setStack(s => [...s, { type: "person", id, from: TAB_LABELS[tab] }]);
+  const onOpenPartner = (id) => setStack(s => [...s, { type: "partner", id, from: TAB_LABELS[tab] }]);
 
   const themeClass = activeTheme === "parchment" ? "theme-parchment" : "";
   const typeClass = typePair === "cormorant" ? "type-cormorant" : typePair === "system" ? "type-system" : "";
@@ -51,24 +72,30 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
 
   const top = stack[stack.length - 1];
 
+  const backBtn = (label) => (
+    <button className="fe-back" onClick={onBack}>
+      <FEIcon name="arrowL" size={16} />{label || "Back"}
+    </button>
+  );
+
   return (
-    <div className={"fe-app " + themeClass + " " + typeClass}>
+    <div className={"fe-app " + themeClass + " " + typeClass} onScrollCapture={handleScroll}>
       <div className="fe-screen">
         {top ? (
           top.type === "session"
-            ? <FEDetail id={top.id} savedSet={savedSet} onToggle={onToggle} onBack={onBack} onOpenPerson={onOpenPerson} />
+            ? <FEDetail id={top.id} savedSet={savedSet} onToggle={onToggle} onBack={onBack} onOpenPerson={onOpenPerson} backBtn={backBtn(top.from)} />
             : top.type === "backstage"
-              ? <FEBackstage onBack={onBack} />
+              ? <FEBackstage onBack={onBack} backBtn={backBtn()} />
               : top.type === "map"
-                ? <FEMap themeBtn={themeBtn} onBack={onBack} />
+                ? <FEMap themeBtn={themeBtn} onBack={onBack} backBtn={backBtn()} />
                 : top.type === "partner"
-                  ? <FEPartnerDetail id={top.id} onBack={onBack} />
-                  : <FEPersonDetail id={top.id} onBack={onBack} onOpen={onOpenSession} />
+                  ? <FEPartnerDetail id={top.id} onBack={onBack} backBtn={backBtn(top.from)} />
+                  : <FEPersonDetail id={top.id} onBack={onBack} onOpen={onOpenSession} backBtn={backBtn(top.from)} />
         ) : tab === "home" ? (
           <>
             <FETopBar
               left={themeBtn}
-              sub="May 1—3, 2026 · Portugal"
+              sub="May 3—5, 2026 · Portugal"
               title={<span>The <em>FiVth</em></span>}
               right={<button className="fe-iconbtn" onClick={() => setStack(s => [...s, { type: "map" }])} aria-label="Open map" title="Field map"><FEIcon name="map" size={16} /></button>}
             />
@@ -84,7 +111,7 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
           <FEPartners onOpenPartner={onOpenPartner} themeBtn={themeBtn} />
         )}
       </div>
-      {!top && <FETabBar tab={tab} onChange={setTab} />}
+      {!top && <FETabBar tab={tab} onChange={setTab} hidden={tabHidden} />}
     </div>
   );
 };

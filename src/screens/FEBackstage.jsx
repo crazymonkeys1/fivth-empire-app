@@ -2,11 +2,11 @@ import React from 'react';
 import { FEIcon } from '../icons.jsx';
 import { FETopBar } from '../parts.jsx';
 
-export const FEBackstage = ({ onBack }) => {
+export const FEBackstage = ({ onBack, backBtn }) => {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
-        left={<button className="fe-back" onClick={onBack}><FEIcon name="arrowL" size={14} />Back</button>}
+        left={backBtn}
         sub="Made with Backstage"
       />
       <div className="fe-scroll fe-bs-page">

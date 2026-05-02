@@ -3,13 +3,11 @@ import { FEIcon } from '../icons.jsx';
 import { FETopBar } from '../parts.jsx';
 import { FE_VENUES } from '../data.js';
 
-export const FEMap = ({ themeBtn, onBack }) => {
+export const FEMap = ({ themeBtn, onBack, backBtn }) => {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
-        left={onBack
-          ? <button className="fe-back" onClick={onBack}><FEIcon name="arrowL" size={14} />Back</button>
-          : themeBtn}
+        left={backBtn ?? themeBtn}
         sub="Three stages. One field."
         title={<span>The <em>Grounds</em></span>}
       />

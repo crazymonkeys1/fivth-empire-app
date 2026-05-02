@@ -37,13 +37,13 @@ export const FEPartners = ({ onOpenPartner, themeBtn }) => {
   );
 };
 
-export const FEPartnerDetail = ({ id, onBack }) => {
+export const FEPartnerDetail = ({ id, onBack, backBtn }) => {
   const p = FE_PARTNERS_BY_ID[id];
   if (!p) return null;
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
-        left={<button className="fe-back" onClick={onBack}><FEIcon name="arrowL" size={14} />Back</button>}
+        left={backBtn}
         sub={p.role}
       />
       <div className="fe-scroll fe-partner-detail">

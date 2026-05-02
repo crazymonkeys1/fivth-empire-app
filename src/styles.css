@@ -88,6 +88,7 @@ html, body, #root {
   overflow: hidden;
   font-family: var(--fe-ui);
   padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: calc(54px + env(safe-area-inset-bottom, 0px));
 }
 
 .fe-app::before {
@@ -177,9 +178,19 @@ html, body, #root {
   grid-template-columns: repeat(5, 1fr);
   border-top: 1px solid var(--fe-line);
   background: var(--fe-bg);
-  padding: 8px 8px 10px;
-  position: relative;
-  z-index: 2;
+  padding: 8px 8px 0;
+  padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transform: translateY(0);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.fe-tabbar.tab-hidden {
+  transform: translateY(110%);
 }
 .fe-tab {
   display: flex; flex-direction: column;
@@ -930,18 +941,20 @@ html, body, #root {
 .fe-back {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   background: transparent;
   border: none;
-  color: var(--fe-fg-2);
+  color: var(--fe-fg);
   font-family: var(--fe-ui);
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  padding: 0;
+  padding: 6px 0;
+  min-width: 44px;
+  min-height: 44px;
 }
-.fe-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+.fe-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.6; }
 
 /* ============== SPEAKER DETAIL ============== */
 .fe-speaker-hero {
