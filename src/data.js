@@ -173,45 +173,45 @@ export const FE_toMinutes = (hhmm) => {
 
 export const FE_dayOf = (n) => FE_DAYS.find(d => d.n === n);
 
-export const FE_currentSession = () => {
-  const nowMin = FE_toMinutes(FE_NOW.time);
+export const FE_currentSession = (now) => {
+  const nowMin = FE_toMinutes(now.time);
   return FE_SESSIONS.find(s =>
-    s.day === FE_NOW.day && s.venue === "sanctum" &&
+    s.day === now.day && s.venue === "sanctum" &&
     FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin
   ) || FE_SESSIONS.find(s =>
-    s.day === FE_NOW.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin
+    s.day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin
   );
 };
 
-export const FE_nextSessions = (count = 3) => {
-  const nowMin = FE_toMinutes(FE_NOW.time);
+export const FE_nextSessions = (now, count = 3) => {
+  const nowMin = FE_toMinutes(now.time);
   return FE_SESSIONS
-    .filter(s => s.day === FE_NOW.day && FE_toMinutes(s.start) > nowMin)
+    .filter(s => s.day === now.day && FE_toMinutes(s.start) > nowMin)
     .sort((a, b) => FE_toMinutes(a.start) - FE_toMinutes(b.start))
     .slice(0, count);
 };
 
-export const FE_liveSessions = () => {
-  const nowMin = FE_toMinutes(FE_NOW.time);
+export const FE_liveSessions = (now) => {
+  const nowMin = FE_toMinutes(now.time);
   return FE_SESSIONS.filter(s =>
-    s.day === FE_NOW.day &&
+    s.day === now.day &&
     FE_toMinutes(s.start) <= nowMin &&
     FE_toMinutes(s.end) > nowMin
   );
 };
 
-export const FE_upcomingWithin = (windowMin = 60) => {
-  const nowMin = FE_toMinutes(FE_NOW.time);
+export const FE_upcomingWithin = (now, windowMin = 60) => {
+  const nowMin = FE_toMinutes(now.time);
   return FE_SESSIONS
-    .filter(s => s.day === FE_NOW.day && FE_toMinutes(s.start) > nowMin && FE_toMinutes(s.start) <= nowMin + windowMin)
+    .filter(s => s.day === now.day && FE_toMinutes(s.start) > nowMin && FE_toMinutes(s.start) <= nowMin + windowMin)
     .sort((a, b) => FE_toMinutes(a.start) - FE_toMinutes(b.start));
 };
 
-export const FE_todaysSpeakers = () => {
+export const FE_todaysSpeakers = (now) => {
   const seen = new Set();
   const out = [];
   FE_SESSIONS
-    .filter(s => s.day === FE_NOW.day)
+    .filter(s => s.day === now.day)
     .sort((a, b) => FE_toMinutes(a.start) - FE_toMinutes(b.start))
     .forEach(s => (s.speakers || []).forEach(id => {
       if (!seen.has(id) && FE_PEOPLE_BY_ID[id]) { seen.add(id); out.push(FE_PEOPLE_BY_ID[id]); }

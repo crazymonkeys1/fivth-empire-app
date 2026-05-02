@@ -1,20 +1,22 @@
 import React from 'react';
 import { FEIcon } from '../icons.jsx';
 import {
-  FE_NOW, FE_VENUES, FE_TRACKS, FE_PEOPLE_BY_ID,
-  FE_currentSession, FE_liveSessions, FE_upcomingWithin, FE_todaysSpeakers, FE_dayOf, FE_toMinutes,
+  FE_VENUES, FE_TRACKS, FE_PEOPLE_BY_ID,
+  FE_liveSessions, FE_upcomingWithin, FE_todaysSpeakers, FE_dayOf, FE_toMinutes,
   FE_SESSIONS,
 } from '../data.js';
+import { useClock } from '../ClockContext.jsx';
 
 export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setTab }) => {
-  const day = FE_dayOf(FE_NOW.day);
+  const now = useClock();
+  const day = FE_dayOf(now.day);
 
   if (variant === "B") {
-    const nowMin = FE_toMinutes(FE_NOW.time);
+    const nowMin = FE_toMinutes(now.time);
     return (
       <div className="fe-scroll">
         <div className="fe-hero" style={{ paddingBottom: 14 }}>
-          <div className="fe-hero-eyebrow"><span className="dot" />{day.long} · {FE_NOW.time}</div>
+          <div className="fe-hero-eyebrow"><span className="dot" />{day.long} · {now.time}</div>
           <h1 className="fe-hero-title">Today on <em>The FiVth</em></h1>
           <div className="fe-hero-time">SANTO ISIDORO · ERICEIRA</div>
         </div>
@@ -23,7 +25,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
           <span className="more">View all →</span>
         </div>
         <div style={{ padding: "0 22px 24px" }}>
-          {FE_SESSIONS.filter(s => s.day === FE_NOW.day).map(s => {
+          {FE_SESSIONS.filter(s => s.day === now.day).map(s => {
             const min = FE_toMinutes(s.start);
             const past = FE_toMinutes(s.end) <= nowMin;
             const live = min <= nowMin && FE_toMinutes(s.end) > nowMin;
@@ -51,16 +53,16 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
   }
 
   // Variant A — editorial hero
-  const live = FE_liveSessions();
-  const upcoming = FE_upcomingWithin(60);
-  const todaysSpeakers = FE_todaysSpeakers();
+  const live = FE_liveSessions(now);
+  const upcoming = FE_upcomingWithin(now, 60);
+  const todaysSpeakers = FE_todaysSpeakers(now);
 
   return (
     <div className="fe-scroll">
       <div className="fe-hero">
-        <div className="fe-hero-eyebrow"><span className="dot" />{day.long} · {FE_NOW.time}</div>
+        <div className="fe-hero-eyebrow"><span className="dot" />{day.long} · {now.time}</div>
         <h1 className="fe-hero-title">The field is <em>open</em>.</h1>
-        <div className="fe-hero-time">SANTO ISIDORO · ERICEIRA · {FE_NOW.time}</div>
+        <div className="fe-hero-time">SANTO ISIDORO · ERICEIRA · {now.time}</div>
       </div>
 
       {/* Happening Now */}
@@ -78,7 +80,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
             const venue = FE_VENUES[s.venue];
             const speakers = (s.speakers || []).map(id => FE_PEOPLE_BY_ID[id]).filter(Boolean);
             const speakerStr = speakers.map(p => p.name.replace("Sir ", "").replace("Dr. ", "")).slice(0, 2).join(" · ") + (speakers.length > 2 ? ` +${speakers.length - 2}` : "");
-            const pct = Math.min(100, ((FE_toMinutes(FE_NOW.time) - FE_toMinutes(s.start)) / (FE_toMinutes(s.end) - FE_toMinutes(s.start))) * 100);
+            const pct = Math.min(100, ((FE_toMinutes(now.time) - FE_toMinutes(s.start)) / (FE_toMinutes(s.end) - FE_toMinutes(s.start))) * 100);
             return (
               <div key={s.id} className="fe-now-mini" onClick={() => onOpen(s.id)}>
                 <div className="row1">
@@ -111,7 +113,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
             const track = FE_TRACKS[s.track];
             const speakers = (s.speakers || []).map(id => FE_PEOPLE_BY_ID[id]).filter(Boolean);
             const speakerStr = speakers.map(p => p.name.replace("Sir ", "").replace("Dr. ", "")).slice(0, 2).join(" · ") + (speakers.length > 2 ? ` +${speakers.length - 2}` : "");
-            const inMin = FE_toMinutes(s.start) - FE_toMinutes(FE_NOW.time);
+            const inMin = FE_toMinutes(s.start) - FE_toMinutes(now.time);
             return (
               <div key={s.id} className="fe-next-row" onClick={() => onOpen(s.id)}>
                 <div className="time">{s.start}<small>in {inMin} min</small></div>
