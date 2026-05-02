@@ -97,34 +97,32 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
       )}
 
       {/* Coming Up */}
-      <div className="fe-section-h">
-        <span className="label">Coming Up · Next Hour</span>
-        <span className="more" onClick={() => setTab && setTab("schedule")} style={{ cursor: "pointer" }}>Full schedule →</span>
-      </div>
-      {upcoming.length === 0 ? (
-        <div style={{ padding: "0 22px 18px", fontFamily: "var(--fe-display)", fontStyle: "italic", color: "var(--fe-fg-3)", fontSize: 14 }}>
-          Nothing in the next hour.
-        </div>
-      ) : (
-        <div className="fe-next-list">
-          {upcoming.map(s => {
-            const venue = FE_VENUES[s.venue];
-            const track = FE_TRACKS[s.track];
-            const speakers = (s.speakers || []).map(id => FE_PEOPLE_BY_ID[id]).filter(Boolean);
-            const speakerStr = speakers.map(p => p.name.replace("Sir ", "").replace("Dr. ", "")).slice(0, 2).join(" · ") + (speakers.length > 2 ? ` +${speakers.length - 2}` : "");
-            const inMin = FE_toMinutes(s.start) - FE_toMinutes(now.time);
-            return (
-              <div key={s.id} className="fe-next-row" onClick={() => onOpen(s.id)}>
-                <div className="time">{s.start}<small>in {inMin} min</small></div>
-                <div>
-                  <div className="title">{s.title}</div>
-                  <div className="meta">{venue.name}{speakerStr ? " · " + speakerStr : ""}</div>
+      {upcoming.length > 0 && (
+        <>
+          <div className="fe-section-h">
+            <span className="label">Coming Up · Next Hour</span>
+            <span className="more" onClick={() => setTab && setTab("schedule")} style={{ cursor: "pointer" }}>Full schedule →</span>
+          </div>
+          <div className="fe-next-list">
+            {upcoming.map(s => {
+              const venue = FE_VENUES[s.venue];
+              const track = FE_TRACKS[s.track];
+              const speakers = (s.speakers || []).map(id => FE_PEOPLE_BY_ID[id]).filter(Boolean);
+              const speakerStr = speakers.map(p => p.name.replace("Sir ", "").replace("Dr. ", "")).slice(0, 2).join(" · ") + (speakers.length > 2 ? ` +${speakers.length - 2}` : "");
+              const inMin = FE_toMinutes(s.start) - FE_toMinutes(now.time);
+              return (
+                <div key={s.id} className="fe-next-row" onClick={() => onOpen(s.id)}>
+                  <div className="time">{s.start}<small>in {inMin} min</small></div>
+                  <div>
+                    <div className="title">{s.title}</div>
+                    <div className="meta">{venue.name}{speakerStr ? " · " + speakerStr : ""}</div>
+                  </div>
+                  <div className="glyph">{track.glyph}</div>
                 </div>
-                <div className="glyph">{track.glyph}</div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </>
       )}
 
       {/* Speakers Rail */}
