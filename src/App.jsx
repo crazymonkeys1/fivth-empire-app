@@ -90,9 +90,5 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
 };
 
 export default function App() {
-  return (
-    <div style={{ width: "100%", height: "100vh", background: "#050403", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <FEApp variant="A" theme="midnight" typePair="default" />
-    </div>
-  );
+  return <FEApp variant="A" theme="midnight" typePair="default" />;
 }

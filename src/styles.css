@@ -79,14 +79,15 @@ html, body, #root {
 .fe-app {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
+  height: 100vh; /* fallback */
   background: var(--fe-bg);
   color: var(--fe-fg);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   font-family: var(--fe-ui);
-  padding-top: 60px;
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 .fe-app::before {
