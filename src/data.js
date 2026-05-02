@@ -1,6 +1,6 @@
 // Fifth Empire — festival data
 // Three days · 3 stages: Sanctum Stage, Fernando Pessoa Stage, Root Stage
-// May 1–3, 2026 · Santo Isidoro, Ericeira
+// May 3–5, 2026 · Santo Isidoro, Ericeira
 
 export const FE_VENUES = {
   sanctum: {
@@ -158,9 +158,9 @@ export const FE_SESSIONS = [
 ];
 
 export const FE_DAYS = [
-  { n: 1, label: "Fri", date: "May 1", long: "Friday · May 1",   title: "The Opening" },
-  { n: 2, label: "Sat", date: "May 2", long: "Saturday · May 2", title: "The FiVth" },
-  { n: 3, label: "Sun", date: "May 3", long: "Sunday · May 3",   title: "The Closing" },
+  { n: 1, label: "Sun", date: "May 3", long: "Sunday · May 3",   title: "The Opening" },
+  { n: 2, label: "Mon", date: "May 4", long: "Monday · May 4",   title: "The FiVth" },
+  { n: 3, label: "Tue", date: "May 5", long: "Tuesday · May 5",  title: "The Closing" },
 ];
 
 // "Now" — pinned to a moment that lights up the Giza premiere on the Sanctum Stage.
