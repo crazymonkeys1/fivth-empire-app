@@ -13,6 +13,7 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
   const speakers = (s.speakers || []).map(pid => FE_PEOPLE_BY_ID[pid]).filter(Boolean);
   const day = FE_dayOf(s.day);
   const saved = savedSet.has(s.id);
+  const mapUrl = s.gmap || venue.gmap || null;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
@@ -27,7 +28,12 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
           <h1 className="fe-detail-title">{s.title}</h1>
           <dl className="fe-detail-meta">
             <dt>When</dt><dd>{day.long} · {s.start}—{s.end}</dd>
-            <dt>Where</dt><dd>{venue.name} <span style={{ color: "var(--fe-fg-4)" }}>· {venue.subtitle}</span></dd>
+            <dt>Where</dt><dd>
+              {mapUrl
+                ? <a href={mapUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline", textDecorationColor: "var(--fe-line-strong)" }}>{venue.name}</a>
+                : venue.name
+              } <span style={{ color: "var(--fe-fg-4)" }}>· {venue.subtitle}</span>
+            </dd>
             {s.note && <><dt>Note</dt><dd style={{ color: "var(--fe-gold)" }}>{s.note}</dd></>}
           </dl>
         </div>
@@ -57,17 +63,22 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
         <div className="fe-detail-section">
           <h3>Venue</h3>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ width: 64, height: 64, background: `var(--fe-venue-${venue.color})`, opacity: 0.85, display: "grid", placeItems: "center", color: "#0a0908", fontFamily: "var(--fe-display)", fontSize: 20 }}>
-              <FEIcon name="pin" size={22} />
-            </div>
+            {mapUrl
+              ? <a href={mapUrl} target="_blank" rel="noopener noreferrer" style={{ display: "grid", placeItems: "center", width: 64, height: 64, background: `var(--fe-venue-${venue.color})`, opacity: 0.85, color: "#0a0908", flexShrink: 0 }}>
+                  <FEIcon name="pin" size={22} />
+                </a>
+              : <div style={{ width: 64, height: 64, background: `var(--fe-venue-${venue.color})`, opacity: 0.85, display: "grid", placeItems: "center", color: "#0a0908", flexShrink: 0 }}>
+                  <FEIcon name="pin" size={22} />
+                </div>
+            }
             <div style={{ flex: 1 }}>
               <div style={{ fontFamily: "var(--fe-display)", fontSize: 18, marginBottom: 2 }}>{venue.name}</div>
               <div style={{ fontSize: 11, color: "var(--fe-fg-3)" }}>{venue.location}</div>
               <div style={{ fontSize: 11, color: "var(--fe-fg-3)", marginTop: 4, display: "flex", alignItems: "center", gap: 6 }}>
                 <FEIcon name="walk" size={12} />{venue.walk}
               </div>
-              {s.gmap && (
-                <a href={s.gmap} target="_blank" rel="noopener noreferrer" className="fe-detail-gmaps">
+              {mapUrl && (
+                <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="fe-detail-gmaps">
                   <FEIcon name="pin" size={11} /> Google Maps →
                 </a>
               )}
@@ -81,8 +92,8 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
           <FEIcon name={saved ? "bookmarkFilled" : "bookmark"} size={14} />
           {saved ? "Saved" : "Save"}
         </button>
-        {s.gmap
-          ? <a className="fe-btn" href={s.gmap} target="_blank" rel="noopener noreferrer"><FEIcon name="walk" size={14} />Directions</a>
+        {mapUrl
+          ? <a className="fe-btn" href={mapUrl} target="_blank" rel="noopener noreferrer"><FEIcon name="walk" size={14} />Directions</a>
           : <button className="fe-btn"><FEIcon name="walk" size={14} />Directions</button>
         }
       </div>

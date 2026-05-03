@@ -34,6 +34,7 @@ export const FE_VENUES = {
     location: "Sintra · high above the Atlantic",
     walk: "Meet at Ribeira d'Ilhas Surf Restaurant & Bar 8h15, then Peninha parking at 10h30",
     color: "peninha",
+    gmap: "https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8",
   },
   quinta: {
     id: "quinta",

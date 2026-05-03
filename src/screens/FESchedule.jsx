@@ -7,6 +7,8 @@ import {
 } from '../data.js';
 import { useClock } from '../ClockContext.jsx';
 
+let _scheduleScrollTop = 0;
+
 const FEScheduleToolbar = ({ query, setQuery, venue, setVenue, track, setTrack, status, setStatus, sort, setSort }) => {
   const [openMenu, setOpenMenu] = React.useState(null);
   const activeCount = (venue ? 1 : 0) + (track ? 1 : 0) + (status ? 1 : 0) + (query ? 1 : 0);
@@ -85,6 +87,19 @@ const FEScheduleToolbar = ({ query, setQuery, venue, setVenue, track, setTrack, 
 
 export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) => {
   const now = useClock();
+  const scrollRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (scrollRef.current && _scheduleScrollTop > 0) {
+      scrollRef.current.scrollTop = _scheduleScrollTop;
+    }
+  }, []);
+
+  const handleOpen = React.useCallback((id) => {
+    if (scrollRef.current) _scheduleScrollTop = scrollRef.current.scrollTop;
+    onOpen(id);
+  }, [onOpen]);
+
   // Default to day 2 if we're still on day 1 — so attendees immediately see tomorrow's programme
   const [day, setDayRaw] = React.useState(Math.max(now.day, 2));
   const [query, setQuery] = React.useState("");
@@ -140,7 +155,7 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
           <div className="title">{dayObj.title}</div>
           <div className="sub">By Venue</div>
         </div>
-        <div className="fe-scroll" style={{ padding: "0 22px 24px" }}>
+        <div className="fe-scroll" ref={scrollRef} style={{ padding: "0 22px 24px" }}>
           {Object.keys(byVenue).map(vid => (
             <div key={vid} style={{ marginTop: 18 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 0", borderBottom: "1px solid var(--fe-line)", marginBottom: 12 }}>
@@ -150,7 +165,7 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {byVenue[vid].map(s => (
-                  <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={onOpen}
+                  <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={handleOpen}
                     isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin}
                     isPast={day < now.day || (day === now.day && FE_toMinutes(s.end) <= nowMin)} />
                 ))}
@@ -167,7 +182,7 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
       <FETopBar left={themeBtn} sub="Schedule" title={<span>The <em>Programme</em></span>} />
       <DayTabs />
       <FEScheduleToolbar query={query} setQuery={setQuery} venue={fVenue} setVenue={setFVenue} track={fTrack} setTrack={setFTrack} status={fStatus} setStatus={setFStatus} sort={sort} setSort={setSort} />
-      <div className="fe-scroll">
+      <div className="fe-scroll" ref={scrollRef}>
         {sessions.length === 0 && (
           <div className="fe-empty-state">
             <span className="g">∅</span>
@@ -184,7 +199,7 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {sessions.filter(s => s.venue === v.id).sort((a,b) => a.start.localeCompare(b.start)).map(s => (
-                    <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={onOpen}
+                    <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={handleOpen}
                       isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin}
                     isPast={day < now.day || (day === now.day && FE_toMinutes(s.end) <= nowMin)} />
                   ))}
@@ -202,7 +217,7 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {sessions.filter(s => s.track === t.id).sort((a,b) => a.start.localeCompare(b.start)).map(s => (
-                    <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={onOpen}
+                    <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={handleOpen}
                       isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin}
                     isPast={day < now.day || (day === now.day && FE_toMinutes(s.end) <= nowMin)} />
                   ))}
@@ -225,7 +240,7 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
                   </div>
                   <div className="fe-time-content">
                     {groups[t].map(s => (
-                      <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={onOpen}
+                      <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={handleOpen}
                         isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin}
                     isPast={day < now.day || (day === now.day && FE_toMinutes(s.end) <= nowMin)} />
                     ))}
