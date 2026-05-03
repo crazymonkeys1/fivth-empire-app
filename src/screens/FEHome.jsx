@@ -172,6 +172,40 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
         ))}
       </div>
 
+      {/* Promo Blocks */}
+      <div className="fe-field-cards" style={{ marginTop: 8 }}>
+        <a className="fe-field-card" href="https://tickets.fivthempire.com/pilgrimage-upgrade" target="_blank" rel="noopener noreferrer">
+          <div className="fe-field-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z" />
+            </svg>
+          </div>
+          <div className="fe-field-body">
+            <div className="fe-field-eyebrow">Pilgrim Upgrade · €1,144</div>
+            <div className="fe-field-title">Join the inner circle for <em>all three days.</em></div>
+            <div className="fe-field-sub" style={{ fontSize: 12, color: "var(--fe-fg-3)", marginTop: 4, lineHeight: 1.4 }}>Sacred sites · Templar pilgrimage · Sage's Dinners · Exclusive speaker dinner in an ancient castle.</div>
+            <div className="fe-field-cta">Upgrade your ticket →</div>
+          </div>
+        </a>
+        <div className="fe-field-card" style={{ cursor: "default" }}>
+          <div className="fe-field-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" />
+            </svg>
+          </div>
+          <div className="fe-field-body">
+            <div className="fe-field-eyebrow">After the FiVth · Wed–Sat</div>
+            <div className="fe-field-title">Continue the journey with the <em>UP Game Gathering.</em></div>
+            <div className="fe-field-sub" style={{ fontSize: 12, color: "var(--fe-fg-3)", marginTop: 4, lineHeight: 1.4 }}>Adventure north to Óbidos, Fátima, Tomar, Lago Azul and Dornes.</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 8 }}>
+              <a href="https://www.up.game/fivthgathering" target="_blank" rel="noopener noreferrer" className="fe-field-cta">up.game/fivthgathering →</a>
+              <a href="https://bit.ly/48i6Wle" target="_blank" rel="noopener noreferrer" className="fe-field-cta">View invite deck →</a>
+              <a href="https://wa.me/14159669716" target="_blank" rel="noopener noreferrer" className="fe-field-cta">WhatsApp Lucian →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Editorial Feature */}
       <div className="fe-section-h">
         <span className="label">From the FiVth</span>

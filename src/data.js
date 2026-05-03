@@ -110,7 +110,7 @@ export const FE_PEOPLE = [
   { id: "avishag", name: "Avishag Gaya", role: "Movement guide", initials: "AV", bio: "Holds the late dancefloor on the Root Stage with movement as prayer.", tag: "Sound & Frequency" },
 
   // ===== Day 2 & 3 =====
-  { id: "manuel", name: "Manuel Gandra", role: "Guide · Ribeira d'Ilhas", initials: "MG", image: "https://www.mysticpaths.pt/wp-content/uploads/2018/04/manuelgandra-e1528411169941.jpg", bio: "Local guide leading the morning walk from Ribeira d'Ilhas Surf Restaurant & Bar to the Sanctuary of Peninha.", tag: "Pilgrimage" },
+  { id: "manuel", name: "Manuel Gandra", role: "Guide · Ribeira d'Ilhas", initials: "MG", bio: "Local guide leading the morning walk from Ribeira d'Ilhas Surf Restaurant & Bar to the Sanctuary of Peninha.", tag: "Pilgrimage" },
   { id: "cristina", name: "Cristina Moreira", role: "Sacred sites · ceremonial facilitator", initials: "CM", image: "https://process.filestackapi.com/resize=fit:crop,width:200,height:200/quality=v:79/compress/cache=expiry:604800/fallback=file:%22https%3A%2F%2Fcdn.filestackcontent.com%2FkHLPLlVXTSet9iI22eZR%22,cache:604800/kHLPLlVXTSet9iI22eZR", bio: "Leads the ceremonial activation at the Sanctuary of Peninha — a sacred site high above the Atlantic that has held the memory of the Sacred Feminine for centuries.", tag: "Ritual & Embodiment" },
   { id: "luciano", name: "Luciano", role: "Ceremonial facilitator", initials: "LU", bio: "Co-facilitates the ceremonial activation at the Sanctuary of Peninha.", tag: "Ritual & Embodiment" },
   { id: "alma", name: "Alma", role: "Ceremonial facilitator", initials: "AL", bio: "Co-facilitates the ceremonial activation at the Sanctuary of Peninha.", tag: "Ritual & Embodiment" },
