@@ -32,7 +32,7 @@ export const FE_VENUES = {
     name: "Sanctuary of Peninha",
     subtitle: "Sacred Pilgrimage",
     location: "Sintra · high above the Atlantic",
-    walk: "Meet at Ribeira D'Ilhas 8h15, then Peninha parking at 10h30",
+    walk: "Meet at Ribeira d'Ilhas Surf Restaurant & Bar 8h15, then Peninha parking at 10h30",
     color: "peninha",
   },
   quinta: {
@@ -109,7 +109,7 @@ export const FE_PEOPLE = [
   { id: "avishag", name: "Avishag Gaya", role: "Movement guide", initials: "AV", bio: "Holds the late dancefloor on the Root Stage with movement as prayer.", tag: "Sound & Frequency" },
 
   // ===== Day 2 & 3 =====
-  { id: "manuel", name: "Manuel Gandra", role: "Guide · Ribeira D'Ilhas", initials: "MG", bio: "Local guide leading the morning walk from Ribeira D'Ilhas to the Sanctuary of Peninha.", tag: "Pilgrimage" },
+  { id: "manuel", name: "Manuel Gandra", role: "Guide · Ribeira d'Ilhas", initials: "MG", bio: "Local guide leading the morning walk from Ribeira d'Ilhas Surf Restaurant & Bar to the Sanctuary of Peninha.", tag: "Pilgrimage" },
   { id: "cristina", name: "Cristina Moreira", role: "Sacred sites · ceremonial facilitator", initials: "CM", bio: "Leads the ceremonial activation at the Sanctuary of Peninha — a sacred site high above the Atlantic that has held the memory of the Sacred Feminine for centuries.", tag: "Ritual & Embodiment" },
   { id: "luciano", name: "Luciano", role: "Ceremonial facilitator", initials: "LU", bio: "Co-facilitates the ceremonial activation at the Sanctuary of Peninha.", tag: "Ritual & Embodiment" },
   { id: "alma", name: "Alma", role: "Ceremonial facilitator", initials: "AL", bio: "Co-facilitates the ceremonial activation at the Sanctuary of Peninha.", tag: "Ritual & Embodiment" },
@@ -171,7 +171,7 @@ export const FE_SESSIONS = [
   // ========== Day 2 — Monday, May 4 — The Sanctuary of Peninha ==========
 
   // Morning pilgrimage — Sintra
-  { id: "d2-01", day: 2, start: "08:30", end: "09:30", title: "Ribeira D'Ilhas · with Manuel Gandra", venue: "peninha", track: "ritual", speakers: ["manuel"], desc: "Meet Manuel Gandra at the restaurant at Ribeira D'Ilhas for the morning walk. Please arrive 15 minutes early to park and reach the meeting point at the restaurant.", note: "⚑ Arrive by 8h15 to park. Meeting point: the restaurant at Ribeira D'Ilhas." },
+  { id: "d2-01", day: 2, start: "08:30", end: "09:30", title: "Ribeira d'Ilhas · with Manuel Gandra", venue: "peninha", track: "ritual", speakers: ["manuel"], desc: "Meet Manuel Gandra at Ribeira d'Ilhas Surf Restaurant & Bar for the morning walk. Please arrive 15 minutes early to park and reach the meeting point.", note: "⚑ Arrive by 8h15 to park. Meeting point: Ribeira d'Ilhas Surf Restaurant & Bar.", gmap: "https://www.google.com/maps/place//data=!4m2!3m1!1s0xd1f26fbeb6444e5:0xdf1cdd4d55085ee2?sa=X&ved=1t:8290&ictx=111" },
   { id: "d2-02", day: 2, start: "10:30", end: "11:00", title: "Arrival at Peninha · Parking Area", venue: "peninha", track: "ritual", speakers: [], desc: "High above the Atlantic, where the wind never stops and the horizon stretches to the edge of the known world, there is a place that has been holding secrets from a distant past. Meet at the Peninha parking area before the ceremonial activation begins.", note: "⚑ Meet at Peninha Parking Area.", gmaps: "https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8" },
   { id: "d2-03", day: 2, start: "11:00", end: "14:30", title: "Ancient Sacred Sites & Ceremonial Activation", venue: "peninha", track: "ritual", speakers: ["cristina", "reachel", "luciano", "alma"], desc: "The Sanctuary of Peninha is where the Sacred Feminine refused to leave. Where the same man who built Quinta da Regaleira — with its initiation wells and Grail symbolism — came at the end of his life and never finished what he started. Cristina Moreira, Reachel Singh, Luciano and Alma lead the activation. Lunch will be provided for the Pilgrims." },
   { id: "d2-lunch", day: 2, start: "14:30", end: "19:00", title: "Free Time · Lunch Provided", venue: "peninha", track: "community", speakers: [], desc: "Lunch is provided for Pilgrims. Rest, integrate, and prepare for the evening.", note: "Free time until the evening gathering." },

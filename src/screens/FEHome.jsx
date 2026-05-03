@@ -77,14 +77,23 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
         <div className="fe-hero-time">{heroSubs[now.day] ?? heroSubs[1]} · {now.time}</div>
       </div>
 
-      {/* Day 2 — Meeting Point alert */}
-      {now.day === 2 && (
+      {/* Day 2 — Meeting Point alert (shown on day 1 as "tomorrow" and day 2 as "today") */}
+      {(now.day === 1 || now.day === 2) && (
         <div className="fe-alert-meeting">
           <div className="fe-alert-meeting-icon">📍</div>
           <div className="fe-alert-meeting-body">
-            <div className="fe-alert-meeting-title">Day 2 · Meeting Points</div>
-            <div className="fe-alert-meeting-line"><strong>8h15</strong> — Ribeira D'Ilhas, at the restaurant. Meet Manuel Gandra. <em>Please arrive early to park.</em></div>
-            <div className="fe-alert-meeting-line"><strong>10h30</strong> — Peninha Parking Area · <a href="https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8" target="_blank" rel="noopener noreferrer">Google Maps →</a></div>
+            <div className="fe-alert-meeting-title">
+              {now.day === 1 ? "Tomorrow · Day 2 · The Pilgrimage" : "Today · The Pilgrimage · Meeting Points"}
+            </div>
+            <div className="fe-alert-meeting-line">
+              <strong>8h15</strong> — <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0xd1f26fbeb6444e5:0xdf1cdd4d55085ee2?sa=X&ved=1t:8290&ictx=111" target="_blank" rel="noopener noreferrer">Ribeira d'Ilhas Surf Restaurant & Bar →</a> Meet Manuel Gandra. <em>Arrive early to park.</em>
+            </div>
+            <div className="fe-alert-meeting-line">
+              <strong>10h30</strong> — Peninha Parking Area · <a href="https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8" target="_blank" rel="noopener noreferrer">Google Maps →</a>
+            </div>
+            <div className="fe-alert-meeting-line">
+              <strong>19h00</strong> — Quinta São José · Art Exhibition &amp; Sage Dinner <em>(location revealed to Pilgrims)</em>
+            </div>
           </div>
         </div>
       )}

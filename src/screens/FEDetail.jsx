@@ -76,7 +76,10 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
           <FEIcon name={saved ? "bookmarkFilled" : "bookmark"} size={14} />
           {saved ? "Saved" : "Save"}
         </button>
-        <button className="fe-btn"><FEIcon name="walk" size={14} />Directions</button>
+        {s.gmap
+          ? <a className="fe-btn" href={s.gmap} target="_blank" rel="noopener noreferrer"><FEIcon name="walk" size={14} />Directions</a>
+          : <button className="fe-btn"><FEIcon name="walk" size={14} />Directions</button>
+        }
       </div>
     </div>
   );
