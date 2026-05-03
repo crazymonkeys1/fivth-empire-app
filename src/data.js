@@ -89,7 +89,7 @@ export const FE_PEOPLE = [
   { id: "daniela", name: "Daniela Gandra", role: "Poetisa", initials: "DG", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/ZUnYOIWq7C0RbhqlgbVX/media/69ecf83ab0e5e2bb7fb27491.png", bio: "Poetisa convidada do Palco Fernando Pessoa — surge entre os tempos certos do programa, com a palavra como ponte.", tag: "Pessoa Stage" },
 
   // ===== Root Stage =====
-  { id: "julia", name: "Julia Pieper", role: "Yoga teacher", initials: "JP", image: "/speakers/julia.jpg", bio: "Leads movement-as-meditation. Her practice opens the day on the Root Stage with a slow flow under the trees.", tag: "Ritual & Embodiment" },
+  { id: "julia", name: "Julia Pieper", role: "Yoga teacher", initials: "JP", image: "/speakers/julia.jpg", sortLast: true, bio: "Leads movement-as-meditation. Her practice opens the day on the Root Stage with a slow flow under the trees.", tag: "Ritual & Embodiment" },
   { id: "nuno", name: "Nuno Kampos", role: "Sacred Masculine retreat leader", initials: "NK", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/ZUnYOIWq7C0RbhqlgbVX/media/69db4109982fd67a35838f25.png", bio: "World traveler, artist, and father of six. A Vision Quest initiate and Temazcal runner leading Sacred Masculine retreats and Youth Camps.", tag: "Ritual & Embodiment" },
   { id: "lisa", name: "Lisa Jones", role: "Healer · breathwork", initials: "LJ", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/ZUnYOIWq7C0RbhqlgbVX/media/69db4109a4e6aa34cbec50b7.png", bio: "Healer at heart who guides people back to themselves — co-leading the Openheart Breathwork on the Root Stage.", tag: "Ritual & Embodiment" },
   { id: "jennifer", name: "Jennifer K. Hill", role: "Communication architect", initials: "JH", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/ZUnYOIWq7C0RbhqlgbVX/media/69db2f06a4e6aa34cbea5d64.png", bio: "Cracked the code of human connection. Guides leaders in aligning their communication with their desired world. Two decades of building companies and delivering keynotes globally.", tag: "Community & Future" },
@@ -262,6 +262,9 @@ export const FE_todaysSpeakers = (now) => {
       const aPhoto = !!FE_PEOPLE_BY_ID[ida]?.image;
       const bPhoto = !!FE_PEOPLE_BY_ID[idb]?.image;
       if (aPhoto !== bPhoto) return aPhoto ? -1 : 1;
+      const aSortLast = !!FE_PEOPLE_BY_ID[ida]?.sortLast;
+      const bSortLast = !!FE_PEOPLE_BY_ID[idb]?.sortLast;
+      if (aSortLast !== bSortLast) return aSortLast ? 1 : -1;
       if (a.hasWorkshop !== b.hasWorkshop) return a.hasWorkshop ? -1 : 1;
       return a.firstMin - b.firstMin;
     })
