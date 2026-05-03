@@ -34,6 +34,15 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
 
           {/* Venue list */}
           <div style={{ marginTop: 18 }}>
+            {/* Ribeira — Day 2 meeting point */}
+            <div style={{ padding: "14px 0", borderBottom: "1px solid var(--fe-line)", display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 14, alignItems: "center" }}>
+              <div style={{ width: 10, height: 10, background: "var(--fe-venue-peninha)" }} />
+              <div>
+                <div style={{ fontFamily: "var(--fe-display)", fontSize: 17, lineHeight: 1.1 }}>Ribeira d'Ilhas Surf Restaurant & Bar</div>
+                <div style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--fe-fg-3)", marginTop: 3 }}>Day 2 Meeting Point · Arrive by 8h15</div>
+              </div>
+              <a href={RIBEIRA_GMAPS} target="_blank" rel="noopener noreferrer" className="fe-iconbtn"><FEIcon name="walk" size={16} /></a>
+            </div>
             {VENUE_ORDER.map(id => FE_VENUES[id]).filter(Boolean).map(v => (
               <div key={v.id} style={{ padding: "14px 0", borderBottom: "1px solid var(--fe-line)", display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 14, alignItems: "center" }}>
                 <div style={{ width: 10, height: 10, background: `var(--fe-venue-${v.color})` }} />
