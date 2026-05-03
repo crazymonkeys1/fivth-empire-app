@@ -2,16 +2,18 @@ import React from 'react';
 import { FETopBar, FEBackstageFooter } from '../parts.jsx';
 import { FE_PARTNERS, FE_PARTNERS_BY_ID } from '../data.js';
 
-// Typographic BACK/STAGE logo with mirrored-A detail + icon
+// Typographic BACK/STAGE logo — icon + text as one centred unit
 const BSTypoLogo = ({ hero = false }) => (
   <div className={`bs-typo-logo${hero ? " bs-typo-logo--hero" : ""}`}>
-    <img src="/assets/backstage-icon.svg" alt="" className="bs-typo-icon" aria-hidden="true" />
-    <div className="bs-typo-text">
-      <div className="bs-typo-back">
-        B<span className="bs-typo-flip">A</span>CK
+    <div className="bs-typo-inner">
+      <img src="/assets/backstage-icon.svg" alt="" className="bs-typo-icon" aria-hidden="true" />
+      <div className="bs-typo-text">
+        <div className="bs-typo-back">
+          B<span className="bs-typo-flip">A</span>CK
+        </div>
+        <div className="bs-typo-rule" />
+        <div className="bs-typo-stage">STAGE</div>
       </div>
-      <div className="bs-typo-rule" />
-      <div className="bs-typo-stage">STAGE</div>
     </div>
   </div>
 );
