@@ -1682,10 +1682,46 @@ html, body, #root {
 .fe-partner-hero--mark {
   flex-direction: column;
   height: 200px;
+  background: var(--fe-bg);
 }
 .fe-partner-logo--mark {
   background: var(--fe-bg);
 }
+
+/* Backstage typographic logo */
+.bs-typo-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+}
+.bs-typo-back {
+  font-family: var(--fe-display);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--fe-fg);
+  line-height: 1;
+}
+.bs-typo-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--fe-gold);
+  opacity: 0.5;
+}
+.bs-typo-stage {
+  font-family: var(--fe-mono);
+  font-size: 9px;
+  letter-spacing: 0.42em;
+  color: var(--fe-gold);
+  text-transform: uppercase;
+  line-height: 1;
+}
+/* Hero (large) variant */
+.bs-typo-logo--hero .bs-typo-back { font-size: 40px; letter-spacing: 0.16em; }
+.bs-typo-logo--hero .bs-typo-stage { font-size: 12px; letter-spacing: 0.48em; margin-top: 2px; }
+.bs-typo-logo--hero .bs-typo-rule { max-width: 180px; }
 .fe-partner-eyebrow {
   font-family: var(--fe-mono);
   font-size: 10px;
