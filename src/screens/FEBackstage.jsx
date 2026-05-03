@@ -10,18 +10,20 @@ export const FEBackstage = ({ onBack, backBtn }) => {
         sub="Made with Backstage"
       />
       <div className="fe-scroll fe-bs-page">
-        <div className="fe-bs-mark-lg" aria-hidden="true">
-          <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" strokeLinecap="round">
-            <path d="M32 4l6 22L60 32l-22 6L32 60l-6-22L4 32l22-6z" />
-            <circle cx="32" cy="32" r="5.5" fill="currentColor" stroke="none" />
+        <div className="fe-bs-logo" aria-label="Backstage">
+          <svg viewBox="0 0 80 80" width="72" height="72" fill="none" stroke="currentColor" strokeLinejoin="round" strokeLinecap="round">
+            <path d="M40 6l7 27.5L74 40l-27 7.5L40 74l-7.5-26.5L6 40l27-6.5z" strokeWidth="1.2" />
+            <path d="M40 18l3.5 14L54 40l-10.5 8L40 62l-4-14L26 40l10-8z" strokeWidth="0.8" opacity="0.45" />
+            <circle cx="40" cy="40" r="4.5" fill="currentColor" stroke="none" />
           </svg>
+          <div className="fe-bs-wordmark">BACKSTAGE</div>
         </div>
-        <div className="fe-bs-eyebrow">Backstage · Lisbon &amp; Berlin</div>
+        <div className="fe-bs-eyebrow">Cooked with love from Ericeira</div>
         <h1 className="fe-bs-title">A team of humans using tech so other <em>homo sapiens</em> can gather in a more meaningful and impactful way.</h1>
         <div className="fe-bs-cta">
           <a className="fe-bs-btn primary" href={`https://wa.me/33616120265?text=${encodeURIComponent("hey, just saw what you did for the FiVth event. Let's talk about my project now...")}`} target="_blank" rel="noopener noreferrer">Gathering humans? Let's talk.</a>
         </div>
-        <div className="fe-bs-credit">Field Editions 2026 runs on Backstage.</div>
+        <div className="fe-bs-credit">This app full of pixels was made with the Backstage team.</div>
       </div>
     </div>
   );

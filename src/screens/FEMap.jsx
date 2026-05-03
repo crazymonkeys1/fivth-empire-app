@@ -8,7 +8,7 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
         left={backBtn ?? themeBtn}
-        sub="Three stages. One field."
+        sub="Three stages. One place."
         title={<span>The <em>Grounds</em></span>}
       />
       <div className="fe-scroll">
@@ -39,7 +39,7 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
               <FEIcon name="wifi" size={12} />Offline ready
             </div>
             <div style={{ fontFamily: "var(--fe-display)", fontSize: 16, lineHeight: 1.4, color: "var(--fe-fg-2)" }}>
-              The full schedule, all voices and the map are cached on your device. The field stays open with or without signal.
+              The full schedule, all voices and the map are cached on your device. This app stays open with or without signal.
             </div>
           </div>
         </div>

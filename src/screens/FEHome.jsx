@@ -62,7 +62,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
     <div className="fe-scroll">
       <div className="fe-hero">
         <div className="fe-hero-eyebrow"><span className="dot" />{day.long} · {now.time}</div>
-        <h1 className="fe-hero-title">The field is <em>open</em>.</h1>
+        <h1 className="fe-hero-title">The gates are <em>open</em>.</h1>
         <div className="fe-hero-time">SANTO ISIDORO · ERICEIRA · {now.time}</div>
       </div>
 
@@ -142,7 +142,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
 
       {/* Editorial Feature */}
       <div className="fe-section-h">
-        <span className="label">From the Field</span>
+        <span className="label">From the FiVth</span>
       </div>
       <a className="fe-feature" href="https://orionarchitect.io" target="_blank" rel="noopener noreferrer">
         <div className="fe-feature-art" aria-hidden="true">
@@ -197,7 +197,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
           </div>
           <div className="fe-field-body">
             <div className="fe-field-eyebrow">Gift · 2 free months</div>
-            <div className="fe-field-title">Stay in the field <em>longer.</em></div>
+            <div className="fe-field-title">Stay in the journey <em>longer.</em></div>
             <div className="fe-field-cta">Claim Academy access →</div>
           </div>
         </a>

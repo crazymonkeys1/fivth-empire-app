@@ -5,10 +5,15 @@ import { FE_PEOPLE } from '../data.js';
 
 export const FESpeakers = ({ onOpenPerson, onOpen, themeBtn }) => {
   const [q, setQ] = React.useState("");
-  const filtered = FE_PEOPLE.filter(p =>
-    p.name.toLowerCase().includes(q.toLowerCase()) ||
-    p.role.toLowerCase().includes(q.toLowerCase())
-  );
+  const filtered = FE_PEOPLE
+    .filter(p =>
+      p.name.toLowerCase().includes(q.toLowerCase()) ||
+      p.role.toLowerCase().includes(q.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (!!a.image !== !!b.image) return a.image ? -1 : 1;
+      return 0;
+    });
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>

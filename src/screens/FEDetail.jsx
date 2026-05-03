@@ -19,7 +19,7 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
       <FETopBar
         left={backBtn}
         sub="Session"
-        right={<button className="fe-iconbtn"><FEIcon name="share" size={16} /></button>}
+        right={null}
       />
       <div className="fe-scroll">
         <div className="fe-detail-hero">
@@ -92,7 +92,7 @@ export const FEPersonDetail = ({ id, onBack, onOpen, backBtn }) => {
       <FETopBar
         left={backBtn}
         sub="Voice"
-        right={<button className="fe-iconbtn"><FEIcon name="share" size={16} /></button>}
+        right={null}
       />
       <div className="fe-scroll">
         <div className="fe-speaker-hero">

@@ -166,7 +166,7 @@ export const FE_SESSIONS = [
   { id: "ro10", day: 1, start: "17:00", end: "19:00", title: "Song, voice, rhythm, and medicine", venue: "root", track: "sound", speakers: ["jack", "reachel", "vinay", "baltazar"], desc: "Jack Weaver, Reachel Singh, Vinay Vayas, Baltazar Molina · medicine music." },
   { id: "ro11", day: 1, start: "19:00", end: "20:00", title: "Sunset Concert", venue: "root", track: "sound", speakers: ["sam"], desc: "Sam Garrett · sunset concert." },
   { id: "ro12", day: 1, start: "20:00", end: "22:00", title: "DJ set & Movement", venue: "root", track: "sound", speakers: ["juliette", "joanna", "avishag"], desc: "Juliette Invigor, Joanna Lewins, Avishag Gaya · the late dancefloor." },
-  { id: "ro13", day: 1, start: "22:00", end: "22:30", title: "Closing Ceremony", venue: "root", track: "ritual", speakers: [], desc: "We close the field together." },
+  { id: "ro13", day: 1, start: "22:00", end: "22:30", title: "Closing Ceremony", venue: "root", track: "ritual", speakers: [], desc: "We close together." },
 
   // ========== Day 2 — Monday, May 4 — The Sanctuary of Peninha ==========
 
@@ -258,7 +258,10 @@ export const FE_todaysSpeakers = (now) => {
   });
 
   return [...speakerMeta.entries()]
-    .sort(([, a], [, b]) => {
+    .sort(([ida, a], [idb, b]) => {
+      const aPhoto = !!FE_PEOPLE_BY_ID[ida]?.image;
+      const bPhoto = !!FE_PEOPLE_BY_ID[idb]?.image;
+      if (aPhoto !== bPhoto) return aPhoto ? -1 : 1;
       if (a.hasWorkshop !== b.hasWorkshop) return a.hasWorkshop ? -1 : 1;
       return a.firstMin - b.firstMin;
     })
@@ -266,11 +269,11 @@ export const FE_todaysSpeakers = (now) => {
 };
 
 export const FE_PARTNERS = [
-  { id: "holomovement", name: "Holomovement", category: "Movement", logo: "/assets/partner-holomovement.png", short: "A planet-wide movement of conscious-evolution organisations, syncing as one breath.", long: "The Holomovement is a coordinated coming-together of organisations and individuals working at the threshold of consciousness, ecology and culture. The movement borrows its name from David Bohm's idea that everything is interconnected — and behaves like one. Holomovement co-presents the wisdom track at Field Editions and curates the cross-stage panels.", web: "holomovement.org", role: "Wisdom Track Co-Curator" },
+  { id: "holomovement", name: "Holomovement", category: "Movement", logo: "/assets/partner-holomovement.png", short: "A planet-wide movement of conscious-evolution organisations, syncing as one breath.", long: "The Holomovement is a coordinated coming-together of organisations and individuals working at the threshold of consciousness, ecology and culture. The movement borrows its name from David Bohm's idea that everything is interconnected — and behaves like one. Holomovement co-presents the wisdom track at the FiVth and curates the cross-stage panels.", web: "holomovement.org", role: "Wisdom Track Co-Curator" },
   { id: "mojo", name: "House of the Rising Mojo", category: "Music & Ceremony", logo: "/assets/partner-mojo.webp", short: "Boutique gathering house — music, medicine, and the kind of nights you remember.", long: "House of the Rising Mojo is a small but mighty Lisbon-rooted production house behind some of Portugal's best-kept secret gatherings. They program the late dancefloor on the Root Stage and the morning sound-bath circle. Expect medicine music, slow brass, and a serious commitment to the dancefloor as a spiritual venue.", web: "houseoftherisingmojo.com", role: "Root Stage · Music Programming" },
-  { id: "meya", name: "MEYA", category: "Conscious Beauty", logo: "/assets/partner-meya.webp", short: "Plant-led skincare from the Atlantic coast. Slow rituals, real ingredients.", long: "MEYA is a Portuguese conscious-beauty house making plant-led skincare and bath rituals from wild-harvested ingredients along the Atlantic coast. They host the morning ritual tent at the Field — a small space for slow attention before the programme begins. All MEYA hosts have their products available at cost for festival pass-holders.", web: "meya.pt", role: "Morning Ritual Tent" },
+  { id: "meya", name: "MEYA", category: "Conscious Beauty", logo: "/assets/partner-meya.webp", short: "Plant-led skincare from the Atlantic coast. Slow rituals, real ingredients.", long: "MEYA is a Portuguese conscious-beauty house making plant-led skincare and bath rituals from wild-harvested ingredients along the Atlantic coast. They host the morning ritual tent at the FiVth — a small space for slow attention before the programme begins. All MEYA products are available at cost for pass-holders.", web: "meya.pt", role: "Morning Ritual Tent" },
   { id: "ommm", name: "OMMM", category: "Sound & Frequency", logo: "/assets/partner-ommm.webp", short: "A modular sound system tuned to 432 — and the people who carry it.", long: "OMMM is a small collective of sound-system builders and engineers based between Berlin and Costa da Caparica. Their modular rig is tuned to 432Hz and runs the Sanctum Stage, the Root dancefloor, and the sunset concert. They also run an open clinic on the second day for any speaker who wants their voice tested in the room before going live.", web: "ommm.audio", role: "Sound — All Stages" },
-  { id: "upgame", name: "UP Game", category: "Play & Practice", logo: "/assets/partner-upgame.webp", short: "The conscious-conversation card deck. We use it between sessions, in the meadow.", long: "UP Game is a card-based conversation practice — a deck of prompts that move from icebreaker through to the kind of question you'd normally only ask a close friend at 3am. UP runs the in-between of the festival: small circles in the meadow, after-lunch decompression rounds, and the quiet zone where you can opt out of the programme without leaving the field.", web: "upgame.life", role: "In-between · Practice Circles" },
+  { id: "upgame", name: "UP Game", category: "Play & Practice", logo: "/assets/partner-upgame.webp", short: "The conscious-conversation card deck. We use it between sessions, in the meadow.", long: "UP Game is a card-based conversation practice — a deck of prompts that move from icebreaker through to the kind of question you'd normally only ask a close friend at 3am. UP runs the in-between of the FiVth: small circles in the meadow, after-lunch decompression rounds, and the quiet zone where you can opt out of the programme without stepping away.", web: "upgame.life", role: "In-between · Practice Circles" },
 ];
 
 export const FE_PARTNERS_BY_ID = Object.fromEntries(FE_PARTNERS.map(p => [p.id, p]));

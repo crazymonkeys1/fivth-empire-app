@@ -1308,9 +1308,21 @@ html, body, #root {
 .fe-bs-page {
   padding: 8px 22px 40px;
 }
-.fe-bs-mark-lg {
+.fe-bs-mark-lg { display: none; }
+.fe-bs-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 20px;
   color: var(--fe-gold);
-  margin: 8px 0 18px;
+}
+.fe-bs-wordmark {
+  font-family: var(--fe-mono);
+  font-size: 13px;
+  letter-spacing: 0.38em;
+  color: var(--fe-fg);
+  font-weight: 400;
 }
 .fe-bs-eyebrow {
   font-family: var(--fe-mono);

@@ -8,12 +8,12 @@ export const FEPartners = ({ onOpenPartner, onOpen, themeBtn }) => {
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
         left={themeBtn}
-        sub="Hands behind the field"
+        sub="The people behind the FiVth"
         title={<span>Our <em>Partners</em></span>}
       />
       <div className="fe-scroll fe-partners-page">
         <p className="fe-partners-lede">
-          Field Editions doesn't happen alone. These are the houses, collectives and small studios holding the field with us.
+          The FiVth doesn't happen alone. These are the houses, collectives and small studios holding it with us.
         </p>
         <div className="fe-partners-grid">
           {FE_PARTNERS.map(p => (
@@ -51,14 +51,14 @@ export const FEPartnerDetail = ({ id, onBack, backBtn }) => {
         <div className="fe-partner-hero">
           <img src={p.logo} alt={p.name} />
         </div>
-        <div className="fe-partner-eyebrow">{p.category} · Field Editions Partner</div>
+        <div className="fe-partner-eyebrow">{p.category} · FiVth Partner</div>
         <h1 className="fe-partner-title">{p.name}</h1>
         <p className="fe-partner-lede">{p.short}</p>
         <div className="fe-partner-divider" />
         <p className="fe-partner-body">{p.long}</p>
         <div className="fe-partner-stats">
           <div>
-            <div className="l">Role at the field</div>
+            <div className="l">Role at the FiVth</div>
             <div className="n">{p.role}</div>
           </div>
           <div>
