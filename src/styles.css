@@ -1359,15 +1359,8 @@ html, body, #root {
   padding: 8px 22px 40px;
 }
 .fe-bs-mark-lg { display: none; }
-.fe-bs-logo {
-  margin: 16px 0 20px;
-}
-.fe-bs-logo-img {
-  width: 88px;
-  height: 88px;
-  opacity: 0.9;
-  display: block;
-}
+.fe-bs-logo { margin: 16px 0 20px; }
+.fe-bs-logo-img { width: 88px; height: 88px; opacity: 0.9; display: block; }
 .theme-parchment .fe-bs-logo-img { filter: invert(1); }
 .fe-bs-wordmark {
   font-family: var(--fe-mono);
@@ -1375,6 +1368,25 @@ html, body, #root {
   letter-spacing: 0.38em;
   color: var(--fe-fg);
   font-weight: 400;
+}
+/* Full-bleed logo hero on the backstage page */
+.fe-bs-hero {
+  height: 210px;      /* taller than the 180px partner-detail hero */
+  margin: 8px 0 0;    /* sits flush, spacing handled by intro below */
+}
+/* "Who made this app? That's us." */
+.fe-bs-intro {
+  font-family: var(--fe-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fe-fg-2);
+  margin: 20px 0 8px;
+  letter-spacing: 0.01em;
+}
+.fe-bs-intro em {
+  font-style: italic;
+  color: var(--fe-fg);
+  font-weight: 700;
 }
 .fe-bs-eyebrow {
   font-family: var(--fe-mono);
