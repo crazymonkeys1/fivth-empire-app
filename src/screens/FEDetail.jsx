@@ -66,6 +66,11 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
               <div style={{ fontSize: 11, color: "var(--fe-fg-3)", marginTop: 4, display: "flex", alignItems: "center", gap: 6 }}>
                 <FEIcon name="walk" size={12} />{venue.walk}
               </div>
+              {s.gmap && (
+                <a href={s.gmap} target="_blank" rel="noopener noreferrer" className="fe-detail-gmaps">
+                  <FEIcon name="pin" size={11} /> Google Maps →
+                </a>
+              )}
             </div>
           </div>
         </div>

@@ -2,8 +2,15 @@ import React from 'react';
 import { FEIcon } from '../icons.jsx';
 import { FETopBar } from '../parts.jsx';
 import { FE_VENUES } from '../data.js';
+import { useClock } from '../ClockContext.jsx';
+
+const PENINHA_GMAPS = "https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8";
 
 export const FEMap = ({ themeBtn, onBack, backBtn }) => {
+  const now = useClock();
+  const showDay2Block = now.day === 1 || now.day === 2;
+  const day2Label = now.day === 1 ? "Tomorrow · Day 2 · The Pilgrimage" : "Today · Day 2 · The Pilgrimage";
+
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
@@ -13,6 +20,8 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
       />
       <div className="fe-scroll">
         <div style={{ padding: 22, position: "relative" }}>
+
+          {/* Field map image */}
           <div style={{ position: "relative", border: "1px solid var(--fe-line)", background: "var(--fe-bg-2)", overflow: "hidden" }}>
             <img src="/assets/field-map.png" alt="FiVth Summit 2026 — field map" style={{ display: "block", width: "100%", height: "auto" }} />
             <div style={{ position: "absolute", left: "39%", top: "53%", width: 14, height: 14, transform: "translate(-50%, -50%)" }}>
@@ -21,6 +30,7 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
             </div>
           </div>
 
+          {/* Venue list */}
           <div style={{ marginTop: 18 }}>
             {Object.values(FE_VENUES).map(v => (
               <div key={v.id} style={{ padding: "14px 0", borderBottom: "1px solid var(--fe-line)", display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 14, alignItems: "center" }}>
@@ -34,6 +44,59 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
             ))}
           </div>
 
+          {/* ── Day 2 Pilgrimage Meeting Points ── */}
+          {showDay2Block && (
+            <div className="fe-map-day2">
+              <div className="fe-map-day2-header">
+                <span className="fe-map-day2-dot" />
+                <span className="fe-map-day2-label">{day2Label}</span>
+              </div>
+
+              <div className="fe-map-day2-stop">
+                <div className="fe-map-day2-time">08h15</div>
+                <div className="fe-map-day2-info">
+                  <div className="fe-map-day2-name">Ribeira D'Ilhas</div>
+                  <div className="fe-map-day2-note">Meet Manuel Gandra at the restaurant. Arrive early to park — it fills up fast.</div>
+                </div>
+              </div>
+
+              <div className="fe-map-day2-connector" />
+
+              <div className="fe-map-day2-stop">
+                <div className="fe-map-day2-time">10h30</div>
+                <div className="fe-map-day2-info">
+                  <div className="fe-map-day2-name">Sanctuary of Peninha · Parking Area</div>
+                  <div className="fe-map-day2-note">High above the Atlantic. Ancient sacred sites &amp; ceremonial activation with Cristina Moreira, Reachel, Luciano &amp; Alma.</div>
+                  <a href={PENINHA_GMAPS} target="_blank" rel="noopener noreferrer" className="fe-map-day2-gmaps">
+                    <FEIcon name="pin" size={11} />
+                    Google Maps →
+                  </a>
+                </div>
+              </div>
+
+              <div className="fe-map-day2-connector" />
+
+              <div className="fe-map-day2-stop">
+                <div className="fe-map-day2-time">14h30</div>
+                <div className="fe-map-day2-info">
+                  <div className="fe-map-day2-name">Free Time · Lunch Provided</div>
+                  <div className="fe-map-day2-note">Lunch is provided for Pilgrims. Rest and integrate before the evening.</div>
+                </div>
+              </div>
+
+              <div className="fe-map-day2-connector" />
+
+              <div className="fe-map-day2-stop">
+                <div className="fe-map-day2-time">19h00</div>
+                <div className="fe-map-day2-info">
+                  <div className="fe-map-day2-name">Quinta São José</div>
+                  <div className="fe-map-day2-note">A former Templar residence. Art Exhibition · Sage Dinner. Location revealed to Pilgrims on the day.</div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Offline card */}
           <div style={{ marginTop: 22, padding: 16, border: "1px solid var(--fe-line)", background: "var(--fe-bg-2)" }}>
             <div style={{ fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--fe-gold)", marginBottom: 10, display: "flex", alignItems: "center", gap: 8 }}>
               <FEIcon name="wifi" size={12} />Offline ready

@@ -85,7 +85,8 @@ const FEScheduleToolbar = ({ query, setQuery, venue, setVenue, track, setTrack, 
 
 export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) => {
   const now = useClock();
-  const [day, setDayRaw] = React.useState(now.day);
+  // Default to day 2 if we're still on day 1 — so attendees immediately see tomorrow's programme
+  const [day, setDayRaw] = React.useState(Math.max(now.day, 2));
   const [query, setQuery] = React.useState("");
   const [fVenue, setFVenue] = React.useState(null);
   const [fTrack, setFTrack] = React.useState(null);
