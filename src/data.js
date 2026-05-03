@@ -242,15 +242,27 @@ export const FE_upcomingWithin = (now, windowMin = 60) => {
 };
 
 export const FE_todaysSpeakers = (now) => {
-  const seen = new Set();
-  const out = [];
-  FE_SESSIONS
+  const WORKSHOP_TRACKS = new Set(["wisdom", "community", "ritual"]);
+  const todaySessions = FE_SESSIONS
     .filter(s => s.day === now.day)
-    .sort((a, b) => FE_toMinutes(a.start) - FE_toMinutes(b.start))
-    .forEach(s => (s.speakers || []).forEach(id => {
-      if (!seen.has(id) && FE_PEOPLE_BY_ID[id]) { seen.add(id); out.push(FE_PEOPLE_BY_ID[id]); }
-    }));
-  return out;
+    .sort((a, b) => FE_toMinutes(a.start) - FE_toMinutes(b.start));
+
+  // For each speaker, record earliest session start and whether they have a workshop track
+  const speakerMeta = new Map();
+  todaySessions.forEach(s => {
+    (s.speakers || []).forEach(id => {
+      if (!FE_PEOPLE_BY_ID[id]) return;
+      if (!speakerMeta.has(id)) speakerMeta.set(id, { firstMin: FE_toMinutes(s.start), hasWorkshop: false });
+      if (WORKSHOP_TRACKS.has(s.track)) speakerMeta.get(id).hasWorkshop = true;
+    });
+  });
+
+  return [...speakerMeta.entries()]
+    .sort(([, a], [, b]) => {
+      if (a.hasWorkshop !== b.hasWorkshop) return a.hasWorkshop ? -1 : 1;
+      return a.firstMin - b.firstMin;
+    })
+    .map(([id]) => FE_PEOPLE_BY_ID[id]);
 };
 
 export const FE_PARTNERS = [
