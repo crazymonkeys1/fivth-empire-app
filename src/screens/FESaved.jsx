@@ -1,6 +1,5 @@
 import React from 'react';
-import { FETopBar } from '../parts.jsx';
-import { FESessionCard } from '../parts.jsx';
+import { FETopBar, FESessionCard, FEBackstageFooter } from '../parts.jsx';
 import { FE_SESSIONS, FE_toMinutes, FE_dayOf } from '../data.js';
 
 export const FESaved = ({ savedSet, onToggle, onOpen, themeBtn }) => {
@@ -38,6 +37,7 @@ export const FESaved = ({ savedSet, onToggle, onOpen, themeBtn }) => {
             })}
           </div>
         )}
+        <FEBackstageFooter onClick={() => onOpen("__backstage__")} />
       </div>
     </div>
   );

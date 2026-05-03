@@ -96,8 +96,9 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
             <FETopBar
               left={
                 <button className="fe-iconbtn" onClick={() => setStack(s => [...s, { type: "backstage" }])} aria-label="Backstage" title="Backstage">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
-                    <rect x="3" y="6" width="18" height="12" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="7" y1="6" x2="7" y2="3" /><line x1="17" y1="6" x2="17" y2="3" />
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round">
+                    <path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" />
+                    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
                   </svg>
                 </button>
               }
@@ -117,9 +118,9 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
         ) : tab === "saved" ? (
           <FESaved savedSet={savedSet} onToggle={onToggle} onOpen={onOpenSession} themeBtn={themeBtn} />
         ) : tab === "speakers" ? (
-          <FESpeakers onOpenPerson={onOpenPerson} themeBtn={themeBtn} />
+          <FESpeakers onOpenPerson={onOpenPerson} onOpen={onOpenSession} themeBtn={themeBtn} />
         ) : (
-          <FEPartners onOpenPartner={onOpenPartner} themeBtn={themeBtn} />
+          <FEPartners onOpenPartner={onOpenPartner} onOpen={onOpenSession} themeBtn={themeBtn} />
         )}
       </div>
       {!top && <FETabBar tab={tab} onChange={setTab} hidden={tabHidden} />}

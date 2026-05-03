@@ -1,9 +1,9 @@
 import React from 'react';
 import { FEIcon } from '../icons.jsx';
-import { FETopBar } from '../parts.jsx';
+import { FETopBar, FEBackstageFooter } from '../parts.jsx';
 import { FE_PARTNERS, FE_PARTNERS_BY_ID } from '../data.js';
 
-export const FEPartners = ({ onOpenPartner, themeBtn }) => {
+export const FEPartners = ({ onOpenPartner, onOpen, themeBtn }) => {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
@@ -32,6 +32,7 @@ export const FEPartners = ({ onOpenPartner, themeBtn }) => {
         <div className="fe-partners-credit">
           Want to be on this page next year? <a href="mailto:partners@fieldeditions.fm">partners@fieldeditions.fm</a>
         </div>
+        <FEBackstageFooter onClick={() => onOpen("__backstage__")} />
       </div>
     </div>
   );

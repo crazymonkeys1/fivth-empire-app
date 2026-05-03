@@ -70,6 +70,21 @@ export const FETopBar = ({ left, title, sub, right }) => (
   </div>
 );
 
+const BSIcon = ({ size = 16 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round">
+    <path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" />
+    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
+  </svg>
+);
+
+export const FEBackstageFooter = ({ onClick }) => (
+  <button className="fe-backstage-footer" onClick={onClick}>
+    <span className="bs-mark" aria-hidden="true"><BSIcon size={16} /></span>
+    <span className="bs-text">Made with <em>Backstage</em></span>
+    <span className="bs-arrow">→</span>
+  </button>
+);
+
 export const FETabBar = ({ tab, onChange, hidden }) => {
   const tabs = [
     { id: "home", label: "Now", icon: "home" },

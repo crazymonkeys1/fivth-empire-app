@@ -6,7 +6,7 @@ import {
   FE_SESSIONS,
 } from '../data.js';
 import { useClock } from '../ClockContext.jsx';
-import { FEAvatar } from '../parts.jsx';
+import { FEAvatar, FEBackstageFooter } from '../parts.jsx';
 
 export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setTab }) => {
   const now = useClock();
@@ -225,19 +225,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
         <span className="map-arrow">→</span>
       </button>
 
-      {/* Backstage footer */}
-      <button className="fe-backstage-footer" onClick={() => onOpen("__backstage__")}>
-        <span className="bs-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="16" height="16">
-            <rect x="3" y="6" width="18" height="12" fill="none" stroke="currentColor" strokeWidth="1.2" />
-            <line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" strokeWidth="1.2" />
-            <line x1="7" y1="6" x2="7" y2="3" stroke="currentColor" strokeWidth="1.2" />
-            <line x1="17" y1="6" x2="17" y2="3" stroke="currentColor" strokeWidth="1.2" />
-          </svg>
-        </span>
-        <span className="bs-text">Made with <em>Backstage</em></span>
-        <span className="bs-arrow">→</span>
-      </button>
+      <FEBackstageFooter onClick={() => onOpen("__backstage__")} />
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import { FEIcon } from '../icons.jsx';
-import { FETopBar, FEAvatar } from '../parts.jsx';
+import { FETopBar, FEAvatar, FEBackstageFooter } from '../parts.jsx';
 import { FE_PEOPLE } from '../data.js';
 
-export const FESpeakers = ({ onOpenPerson, themeBtn }) => {
+export const FESpeakers = ({ onOpenPerson, onOpen, themeBtn }) => {
   const [q, setQ] = React.useState("");
   const filtered = FE_PEOPLE.filter(p =>
     p.name.toLowerCase().includes(q.toLowerCase()) ||
@@ -36,6 +36,7 @@ export const FESpeakers = ({ onOpenPerson, themeBtn }) => {
             </div>
           ))}
         </div>
+        <FEBackstageFooter onClick={() => onOpen("__backstage__")} />
       </div>
     </div>
   );
