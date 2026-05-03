@@ -13,8 +13,13 @@ const BSTypoLogo = ({ hero = false }) => (
 const PartnerLogo = ({ p, hero = false }) => {
   if (p.id === "backstage") {
     return hero
-      ? <div className="fe-partner-hero fe-partner-hero--mark"><BSTypoLogo hero /></div>
-      : <div className="fe-partner-logo fe-partner-logo--mark"><BSTypoLogo /></div>;
+      ? <div className="fe-partner-hero fe-partner-hero--full"><BSTypoLogo hero /></div>
+      : <div className="fe-partner-logo fe-partner-logo--full"><BSTypoLogo /></div>;
+  }
+  if (p.id === "bora") {
+    return hero
+      ? <div className="fe-partner-hero fe-partner-hero--full fe-partner-hero--cover"><img src={p.logo} alt={p.name} /></div>
+      : <div className="fe-partner-logo fe-partner-logo--full fe-partner-logo--cover"><img src={p.logo} alt={p.name} /></div>;
   }
   return hero
     ? <div className="fe-partner-hero"><img src={p.logo} alt={p.name} /></div>

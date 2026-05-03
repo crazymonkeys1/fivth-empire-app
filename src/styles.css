@@ -1679,13 +1679,22 @@ html, body, #root {
   max-height: 100%;
   object-fit: contain;
 }
-.fe-partner-hero--mark {
-  flex-direction: column;
-  height: 200px;
-  background: var(--fe-bg);
+/* Full-width logo containers (backstage + bora) */
+.fe-partner-logo--full {
+  padding: 0;
+  background: #0d0b09;
 }
-.fe-partner-logo--mark {
-  background: var(--fe-bg);
+.fe-partner-hero--full {
+  padding: 0;
+  background: #0d0b09;
+}
+.fe-partner-logo--cover img,
+.fe-partner-hero--cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
+  max-height: none;
 }
 
 /* Backstage typographic logo */
@@ -1693,35 +1702,42 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 6px;
   user-select: none;
+  width: 100%;
+  height: 100%;
+  padding: 18px 22px;
 }
 .bs-typo-back {
-  font-family: var(--fe-display);
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  color: var(--fe-fg);
+  font-family: var(--fe-ui);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   line-height: 1;
+  background: linear-gradient(125deg, #ff9f43 0%, #feca57 55%, #ff6b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .bs-typo-rule {
-  width: 100%;
+  width: 40px;
   height: 1px;
-  background: var(--fe-gold);
-  opacity: 0.5;
+  background: rgba(255, 202, 87, 0.4);
 }
 .bs-typo-stage {
   font-family: var(--fe-mono);
   font-size: 9px;
-  letter-spacing: 0.42em;
-  color: var(--fe-gold);
+  letter-spacing: 0.5em;
+  color: rgba(255, 202, 87, 0.65);
   text-transform: uppercase;
   line-height: 1;
 }
 /* Hero (large) variant */
-.bs-typo-logo--hero .bs-typo-back { font-size: 40px; letter-spacing: 0.16em; }
-.bs-typo-logo--hero .bs-typo-stage { font-size: 12px; letter-spacing: 0.48em; margin-top: 2px; }
-.bs-typo-logo--hero .bs-typo-rule { max-width: 180px; }
+.bs-typo-logo--hero { padding: 28px 30px; }
+.bs-typo-logo--hero .bs-typo-back { font-size: 52px; letter-spacing: 0.1em; }
+.bs-typo-logo--hero .bs-typo-stage { font-size: 12px; letter-spacing: 0.55em; margin-top: 2px; }
+.bs-typo-logo--hero .bs-typo-rule { width: 60px; }
 .fe-partner-eyebrow {
   font-family: var(--fe-mono);
   font-size: 10px;
