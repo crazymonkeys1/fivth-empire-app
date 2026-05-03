@@ -51,6 +51,7 @@ export const FE_VENUES = {
     location: "Shanti Space · Ericeira",
     walk: "Details shared with attendees",
     color: "shanti",
+    gmap: "https://share.google/rlWRx95c7ZnCHyOX5",
   },
 };
 

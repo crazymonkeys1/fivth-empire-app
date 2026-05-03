@@ -5,6 +5,8 @@ import { FE_VENUES } from '../data.js';
 import { useClock } from '../ClockContext.jsx';
 
 const PENINHA_GMAPS = "https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8";
+const RIBEIRA_GMAPS = "https://www.google.com/maps/place//data=!4m2!3m1!1s0xd1f26fbeb6444e5:0xdf1cdd4d55085ee2?sa=X&ved=1t:8290&ictx=111";
+const VENUE_ORDER = ["peninha", "quinta", "shanti", "sanctum", "pessoa", "root"];
 
 export const FEMap = ({ themeBtn, onBack, backBtn }) => {
   const now = useClock();
@@ -32,14 +34,17 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
 
           {/* Venue list */}
           <div style={{ marginTop: 18 }}>
-            {Object.values(FE_VENUES).map(v => (
+            {VENUE_ORDER.map(id => FE_VENUES[id]).filter(Boolean).map(v => (
               <div key={v.id} style={{ padding: "14px 0", borderBottom: "1px solid var(--fe-line)", display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 14, alignItems: "center" }}>
                 <div style={{ width: 10, height: 10, background: `var(--fe-venue-${v.color})` }} />
                 <div>
                   <div style={{ fontFamily: "var(--fe-display)", fontSize: 17, lineHeight: 1.1 }}>{v.name}</div>
                   <div style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--fe-fg-3)", marginTop: 3 }}>{v.subtitle} · {v.walk}</div>
                 </div>
-                <button className="fe-iconbtn"><FEIcon name="walk" size={16} /></button>
+                {v.gmap
+                  ? <a href={v.gmap} target="_blank" rel="noopener noreferrer" className="fe-iconbtn"><FEIcon name="walk" size={16} /></a>
+                  : <div className="fe-iconbtn" style={{ opacity: 0.25 }}><FEIcon name="walk" size={16} /></div>
+                }
               </div>
             ))}
           </div>
@@ -55,8 +60,12 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
               <div className="fe-map-day2-stop">
                 <div className="fe-map-day2-time">08h15</div>
                 <div className="fe-map-day2-info">
-                  <div className="fe-map-day2-name">Ribeira D'Ilhas</div>
+                  <div className="fe-map-day2-name">Ribeira d'Ilhas Surf Restaurant & Bar</div>
                   <div className="fe-map-day2-note">Meet Manuel Gandra at the restaurant. Arrive early to park — it fills up fast.</div>
+                  <a href={RIBEIRA_GMAPS} target="_blank" rel="noopener noreferrer" className="fe-map-day2-gmaps">
+                    <FEIcon name="pin" size={11} />
+                    Google Maps →
+                  </a>
                 </div>
               </div>
 
