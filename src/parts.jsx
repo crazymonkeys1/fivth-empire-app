@@ -80,7 +80,7 @@ const BSIcon = ({ size = 16 }) => (
 export const FEBackstageFooter = ({ onClick }) => (
   <div className="fe-backstage-footer-wrap">
     <button className="fe-backstage-footer" onClick={onClick}>
-      <span className="bs-mark" aria-hidden="true"><BSIcon size={16} /></span>
+      <img src="/assets/backstage-icon.svg" alt="" aria-hidden="true" className="bs-footer-mark" />
       <span className="bs-text">Made with ❤️ by <em>Backstage</em></span>
       <span className="bs-arrow">→</span>
     </button>

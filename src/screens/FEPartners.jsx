@@ -3,18 +3,16 @@ import { FETopBar, FEBackstageFooter } from '../parts.jsx';
 import { FE_PARTNERS, FE_PARTNERS_BY_ID } from '../data.js';
 
 const BSTypoLogo = ({ hero = false }) => (
-  <div className={hero ? "bs-typo-logo bs-typo-logo--hero" : "bs-typo-logo"}>
-    <div className="bs-typo-back">BACK</div>
-    <div className="bs-typo-rule" />
-    <div className="bs-typo-stage">STAGE</div>
+  <div className={`bs-typo-logo${hero ? " bs-typo-logo--hero" : ""}`}>
+    <img src="/assets/backstage-icon.svg" alt="Backstage" className="bs-typo-img" />
   </div>
 );
 
 const PartnerLogo = ({ p, hero = false }) => {
   if (p.id === "backstage") {
     return hero
-      ? <div className="fe-partner-hero fe-partner-hero--full"><BSTypoLogo hero /></div>
-      : <div className="fe-partner-logo fe-partner-logo--full"><BSTypoLogo /></div>;
+      ? <div className="fe-partner-hero fe-partner-hero--full fe-partner-hero--bs"><BSTypoLogo hero /></div>
+      : <div className="fe-partner-logo fe-partner-logo--full fe-partner-logo--bs"><BSTypoLogo /></div>;
   }
   if (p.id === "bora") {
     return hero
@@ -40,7 +38,11 @@ export const FEPartners = ({ onOpenPartner, onOpen, themeBtn }) => {
         </p>
         <div className="fe-partners-grid">
           {FE_PARTNERS.map(p => (
-            <button key={p.id} className="fe-partner-card" onClick={() => onOpenPartner(p.id)}>
+            <button
+              key={p.id}
+              className={`fe-partner-card${p.id === "backstage" ? " fe-partner-card--wide" : ""}`}
+              onClick={() => onOpenPartner(p.id)}
+            >
               <PartnerLogo p={p} />
               <div className="fe-partner-meta">
                 <div className="cat">{p.category}</div>
@@ -63,6 +65,7 @@ export const FEPartnerDetail = ({ id, onBack, backBtn }) => {
   const p = FE_PARTNERS_BY_ID[id];
   if (!p) return null;
   const isBS = p.id === "backstage";
+  const isBora = p.id === "bora";
   const waLink = `https://wa.me/33616120265?text=${encodeURIComponent("hey, just saw what you did for the FiVth event. Let's talk about my project now...")}`;
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
@@ -79,17 +82,15 @@ export const FEPartnerDetail = ({ id, onBack, backBtn }) => {
             <div className="l">Role at the FiVth</div>
             <div className="n">{p.role}</div>
           </div>
-          {!isBS && (
+          {isBora && (
             <div>
               <div className="l">Find them</div>
               <div className="n">{p.web}</div>
             </div>
           )}
         </div>
-        {isBS
-          ? <a href={waLink} target="_blank" rel="noopener noreferrer" className="fe-partner-cta">Gathering humans? Let's talk. →</a>
-          : <a href={`https://${p.web}`} target="_blank" rel="noopener noreferrer" className="fe-partner-cta">Visit {p.name} →</a>
-        }
+        {isBS && <a href={waLink} target="_blank" rel="noopener noreferrer" className="fe-partner-cta">Gathering humans? Let's talk. →</a>}
+        {isBora && <a href={`https://${p.web}`} target="_blank" rel="noopener noreferrer" className="fe-partner-cta">Discover Bora →</a>}
       </div>
     </div>
   );
