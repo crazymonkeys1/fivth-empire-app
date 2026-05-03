@@ -14,6 +14,10 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
   const day = FE_dayOf(s.day);
   const saved = savedSet.has(s.id);
   const mapUrl = s.gmap || venue.gmap || null;
+  const displayName = s.venueName || venue.name;
+  const displaySubtitle = s.venueSubtitle || venue.subtitle;
+  const displayLocation = s.venueLocation || venue.location;
+  const displayWalk = s.venueWalk || venue.walk;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
@@ -30,9 +34,9 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
             <dt>When</dt><dd>{day.long} · {s.start}—{s.end}</dd>
             <dt>Where</dt><dd>
               {mapUrl
-                ? <a href={mapUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline", textDecorationColor: "var(--fe-line-strong)" }}>{venue.name}</a>
-                : venue.name
-              } <span style={{ color: "var(--fe-fg-4)" }}>· {venue.subtitle}</span>
+                ? <a href={mapUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline", textDecorationColor: "var(--fe-line-strong)" }}>{displayName}</a>
+                : displayName
+              } <span style={{ color: "var(--fe-fg-4)" }}>· {displaySubtitle}</span>
             </dd>
             {s.note && <><dt>Note</dt><dd style={{ color: "var(--fe-gold)" }}>{s.note}</dd></>}
           </dl>
@@ -61,7 +65,7 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
         )}
 
         <div className="fe-detail-section">
-          <h3>Venue</h3>
+          <h3>{s.venueName ? "Meeting Point" : "Venue"}</h3>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             {mapUrl
               ? <a href={mapUrl} target="_blank" rel="noopener noreferrer" style={{ display: "grid", placeItems: "center", width: 64, height: 64, background: `var(--fe-venue-${venue.color})`, opacity: 0.85, color: "#0a0908", flexShrink: 0 }}>
@@ -72,10 +76,10 @@ export const FEDetail = ({ id, savedSet, onToggle, onBack, onOpenPerson, backBtn
                 </div>
             }
             <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: "var(--fe-display)", fontSize: 18, marginBottom: 2 }}>{venue.name}</div>
-              <div style={{ fontSize: 11, color: "var(--fe-fg-3)" }}>{venue.location}</div>
+              <div style={{ fontFamily: "var(--fe-display)", fontSize: 18, marginBottom: 2 }}>{displayName}</div>
+              <div style={{ fontSize: 11, color: "var(--fe-fg-3)" }}>{displayLocation}</div>
               <div style={{ fontSize: 11, color: "var(--fe-fg-3)", marginTop: 4, display: "flex", alignItems: "center", gap: 6 }}>
-                <FEIcon name="walk" size={12} />{venue.walk}
+                <FEIcon name="walk" size={12} />{displayWalk}
               </div>
               {mapUrl && (
                 <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="fe-detail-gmaps">
