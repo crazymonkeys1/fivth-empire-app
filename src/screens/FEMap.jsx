@@ -23,15 +23,6 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
       <div className="fe-scroll">
         <div style={{ padding: 22, position: "relative" }}>
 
-          {/* Field map image */}
-          <div style={{ position: "relative", border: "1px solid var(--fe-line)", background: "var(--fe-bg-2)", overflow: "hidden" }}>
-            <img src="/assets/field-map.png" alt="FiVth Summit 2026 — field map" style={{ display: "block", width: "100%", height: "auto" }} />
-            <div style={{ position: "absolute", left: "39%", top: "53%", width: 14, height: 14, transform: "translate(-50%, -50%)" }}>
-              <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#c97a3a", boxShadow: "0 0 0 2px rgba(255,255,255,0.85)" }} />
-              <div style={{ position: "absolute", inset: -8, borderRadius: "50%", border: "1.5px solid #c97a3a", opacity: 0.6, animation: "fe-pulse 2.5s infinite" }} />
-            </div>
-          </div>
-
           {/* Venue list */}
           <div style={{ marginTop: 18 }}>
             {/* Ribeira — Day 2 meeting point */}
@@ -113,6 +104,15 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
               </div>
             </div>
           )}
+
+          {/* Field map image */}
+          <div style={{ position: "relative", border: "1px solid var(--fe-line)", background: "var(--fe-bg-2)", overflow: "hidden", marginTop: 22 }}>
+            <img src="/assets/field-map.png" alt="FiVth Summit 2026 — field map" style={{ display: "block", width: "100%", height: "auto" }} />
+            <div style={{ position: "absolute", left: "39%", top: "53%", width: 14, height: 14, transform: "translate(-50%, -50%)" }}>
+              <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#c97a3a", boxShadow: "0 0 0 2px rgba(255,255,255,0.85)" }} />
+              <div style={{ position: "absolute", inset: -8, borderRadius: "50%", border: "1.5px solid #c97a3a", opacity: 0.6, animation: "fe-pulse 2.5s infinite" }} />
+            </div>
+          </div>
 
           {/* Offline card */}
           <div style={{ marginTop: 22, padding: 16, border: "1px solid var(--fe-line)", background: "var(--fe-bg-2)" }}>
