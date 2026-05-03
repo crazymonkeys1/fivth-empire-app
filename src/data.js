@@ -40,9 +40,10 @@ export const FE_VENUES = {
     id: "quinta",
     name: "Quinta São José",
     subtitle: "Sage's Diner",
-    location: "Former Templar residence · location revealed on the day",
-    walk: "Details shared with Pilgrims",
+    location: "Quinta de São José · 2590-274 Sobral de Monte Agraço",
+    walk: "Sobral de Monte Agraço",
     color: "quinta",
+    gmap: "https://maps.app.goo.gl/V3oAAtyipJkRvLVd7",
   },
   shanti: {
     id: "shanti",
@@ -179,7 +180,7 @@ export const FE_SESSIONS = [
   { id: "d2-lunch", day: 2, start: "14:30", end: "19:00", title: "Free Time · Lunch Provided", venue: "peninha", track: "community", speakers: [], desc: "Lunch is provided for Pilgrims. Rest, integrate, and prepare for the evening.", note: "Free time until the evening gathering." },
 
   // Evening — Quinta São José
-  { id: "d2-04", day: 2, start: "19:00", end: "19:30", title: "Gates Opening · Quinta São José", venue: "quinta", track: "community", speakers: [], desc: "As the sun falls, the inner circle is taken to a location revealed only to those who are here. A former Templar residence. Candlelight. The people who just spent two days unveiling the geometry of the cosmos, the secrets beneath Giza, and the sacred soul of Portugal, will gather over food, over ritual, in a place that has held secrets before and knows how to keep them.", note: "Location: Quinta São José. Details shared with Pilgrims." },
+  { id: "d2-04", day: 2, start: "19:00", end: "19:30", title: "Gates Opening · Quinta São José", venue: "quinta", track: "community", speakers: [], desc: "As the sun falls, the inner circle is taken to a location revealed only to those who are here. A former Templar residence. Candlelight. The people who just spent two days unveiling the geometry of the cosmos, the secrets beneath Giza, and the sacred soul of Portugal, will gather over food, over ritual, in a place that has held secrets before and knows how to keep them.", note: "Location: Quinta de São José · 2590-274 Sobral de Monte Agraço." },
   { id: "d2-05", day: 2, start: "19:30", end: "20:30", title: "World Premiere · Robert Edward Grant Art Exhibition", venue: "quinta", track: "wisdom", speakers: ["reg"], desc: "The world premiere of Robert Edward Grant's art exhibition — an unveiling at the intersection of sacred geometry, light, and the cosmos. An evening no one who is here will forget." },
   { id: "d2-06", day: 2, start: "20:30", end: "23:00", title: "Sage Dinner", venue: "quinta", track: "community", speakers: [], desc: "Dinner. Candlelight. The people who came to go all the way, gathered around one table. The conversation that began beneath the stars above Peninha continues here — over food, over ritual, in a Templar residence that knows how to hold a secret.", note: "Closing at 23h." },
 

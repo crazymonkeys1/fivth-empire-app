@@ -99,7 +99,11 @@ export const FEMap = ({ themeBtn, onBack, backBtn }) => {
                 <div className="fe-map-day2-time">19h00</div>
                 <div className="fe-map-day2-info">
                   <div className="fe-map-day2-name">Quinta São José</div>
-                  <div className="fe-map-day2-note">A former Templar residence. Art Exhibition · Sage Dinner. Location revealed to Pilgrims on the day.</div>
+                  <div className="fe-map-day2-note">A former Templar residence. Art Exhibition · Sage Dinner. Quinta de São José · 2590-274 Sobral de Monte Agraço.</div>
+                  <a href="https://maps.app.goo.gl/V3oAAtyipJkRvLVd7" target="_blank" rel="noopener noreferrer" className="fe-map-day2-gmaps">
+                    <FEIcon name="pin" size={11} />
+                    Google Maps →
+                  </a>
                 </div>
               </div>
             </div>

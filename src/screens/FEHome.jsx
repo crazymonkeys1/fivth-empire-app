@@ -92,7 +92,7 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
               <strong>10h30</strong> — Peninha Parking Area · <a href="https://maps.app.goo.gl/nrjMxUVG9AZRs3JN9" target="_blank" rel="noopener noreferrer">Google Maps →</a>
             </div>
             <div className="fe-alert-meeting-line">
-              <strong>19h00</strong> — Quinta São José · Art Exhibition &amp; Sage Dinner <em>(location revealed to Pilgrims)</em>
+              <strong>19h00</strong> — <a href="https://maps.app.goo.gl/V3oAAtyipJkRvLVd7" target="_blank" rel="noopener noreferrer">Quinta São José →</a> Art Exhibition &amp; Sage Dinner
             </div>
           </div>
         </div>
