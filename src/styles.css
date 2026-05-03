@@ -304,6 +304,55 @@ html, body, #root {
   letter-spacing: 0.1em;
 }
 
+/* ── Day 2 meeting-point alert ── */
+.fe-alert-meeting {
+  display: flex;
+  gap: 12px;
+  margin: 0 22px 20px;
+  padding: 14px 16px;
+  background: rgba(91, 143, 168, 0.12);   /* peninha blue tint */
+  border: 1px solid rgba(91, 143, 168, 0.4);
+  border-left: 3px solid #5b8fa8;
+}
+.fe-alert-meeting-icon {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+.fe-alert-meeting-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.fe-alert-meeting-title {
+  font-family: var(--fe-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5b8fa8;
+  margin-bottom: 2px;
+}
+.fe-alert-meeting-line {
+  font-family: var(--fe-ui);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--fe-fg-2);
+}
+.fe-alert-meeting-line strong {
+  color: var(--fe-fg);
+  font-weight: 700;
+}
+.fe-alert-meeting-line em {
+  font-style: italic;
+  color: var(--fe-fg-3);
+}
+.fe-alert-meeting-line a {
+  color: #5b8fa8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .fe-now-card {
   margin: 18px 22px;
   padding: 20px;

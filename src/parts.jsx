@@ -2,7 +2,7 @@ import React from 'react';
 import { FEIcon } from './icons.jsx';
 import { FE_VENUES, FE_TRACKS, FE_PEOPLE_BY_ID } from './data.js';
 
-export const FESessionCard = ({ session, savedSet, onToggle, onOpen, isLive }) => {
+export const FESessionCard = ({ session, savedSet, onToggle, onOpen, isLive, isPast }) => {
   const venue = FE_VENUES[session.venue];
   const track = FE_TRACKS[session.track];
   const speakers = (session.speakers || []).map(id => FE_PEOPLE_BY_ID[id]).filter(Boolean);
@@ -10,7 +10,7 @@ export const FESessionCard = ({ session, savedSet, onToggle, onOpen, isLive }) =
   const more = speakers.length > 2 ? ` +${speakers.length - 2}` : "";
 
   return (
-    <div className={"fe-session-card " + (isLive ? "live" : "")} onClick={() => onOpen(session.id)}>
+    <div className={"fe-session-card " + (isLive ? "live" : "") + (isPast ? " past" : "")} onClick={() => onOpen(session.id)} style={isPast ? { opacity: 0.42 } : undefined}>
       <span className="vbar" style={{ background: `var(--fe-venue-${venue.color})` }} />
       <div className="top-row">
         <span className="glyph">{track.glyph}</span>

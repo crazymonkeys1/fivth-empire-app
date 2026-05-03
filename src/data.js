@@ -171,14 +171,15 @@ export const FE_SESSIONS = [
   // ========== Day 2 — Monday, May 4 — The Sanctuary of Peninha ==========
 
   // Morning pilgrimage — Sintra
-  { id: "d2-01", day: 2, start: "08:30", end: "10:30", title: "Ribeira D'Ilhas · Morning Walk", venue: "peninha", track: "ritual", speakers: ["manuel"], desc: "Meet Manuel Gandra at the restaurant at Ribeira D'Ilhas. Please arrive 15 min early to park and reach the meeting point.", note: "Arrive by 8h15 to park. Meet at the restaurant." },
-  { id: "d2-02", day: 2, start: "10:30", end: "11:00", title: "Arrival at Peninha · Meeting Point", venue: "peninha", track: "ritual", speakers: [], desc: "Meet at the Peninha parking area. High above the Atlantic, where the wind never stops and the horizon stretches to the edge of the known world.", note: "Peninha parking area — see Google Maps link." },
-  { id: "d2-03", day: 2, start: "11:00", end: "14:30", title: "Ancient Sacred Sites & Ceremonial Activation", venue: "peninha", track: "ritual", speakers: ["cristina", "reachel", "luciano", "alma"], desc: "The Sanctuary of Peninha is where the Sacred Feminine refused to leave. Where the same man who built Quinta da Regaleira — with its initiation wells and Grail symbolism — came at the end of his life and never finished what he started. Cristina Moreira, Reachel Singh, Luciano and Alma lead the activation." },
+  { id: "d2-01", day: 2, start: "08:30", end: "09:30", title: "Ribeira D'Ilhas · with Manuel Gandra", venue: "peninha", track: "ritual", speakers: ["manuel"], desc: "Meet Manuel Gandra at the restaurant at Ribeira D'Ilhas for the morning walk. Please arrive 15 minutes early to park and reach the meeting point at the restaurant.", note: "⚑ Arrive by 8h15 to park. Meeting point: the restaurant at Ribeira D'Ilhas." },
+  { id: "d2-02", day: 2, start: "10:30", end: "11:00", title: "Arrival at Peninha · Parking Area", venue: "peninha", track: "ritual", speakers: [], desc: "High above the Atlantic, where the wind never stops and the horizon stretches to the edge of the known world, there is a place that has been holding secrets from a distant past. Meet at the Peninha parking area before the ceremonial activation begins.", note: "⚑ Meet at Peninha Parking Area.", gmaps: "https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8" },
+  { id: "d2-03", day: 2, start: "11:00", end: "14:30", title: "Ancient Sacred Sites & Ceremonial Activation", venue: "peninha", track: "ritual", speakers: ["cristina", "reachel", "luciano", "alma"], desc: "The Sanctuary of Peninha is where the Sacred Feminine refused to leave. Where the same man who built Quinta da Regaleira — with its initiation wells and Grail symbolism — came at the end of his life and never finished what he started. Cristina Moreira, Reachel Singh, Luciano and Alma lead the activation. Lunch will be provided for the Pilgrims." },
+  { id: "d2-lunch", day: 2, start: "14:30", end: "19:00", title: "Free Time · Lunch Provided", venue: "peninha", track: "community", speakers: [], desc: "Lunch is provided for Pilgrims. Rest, integrate, and prepare for the evening.", note: "Free time until the evening gathering." },
 
   // Evening — Quinta São José
-  { id: "d2-04", day: 2, start: "19:00", end: "19:30", title: "Gates Opening · Quinta São José", venue: "quinta", track: "community", speakers: [], desc: "As the sun falls, the inner circle is taken to a location revealed only to those who are here. A former Templar residence. Candlelight. The people who just spent two days unveiling the geometry of the cosmos gather over food, over ritual, in a place that has held secrets before and knows how to keep them.", note: "Location revealed to Pilgrims on the day." },
-  { id: "d2-05", day: 2, start: "19:30", end: "20:30", title: "World Premiere · Robert Edward Grant Art Exhibition", venue: "quinta", track: "wisdom", speakers: ["reg"], desc: "The world premiere of Robert Edward Grant's art exhibition. An unveiling at the intersection of geometry, light, and the sacred." },
-  { id: "d2-06", day: 2, start: "20:30", end: "23:00", title: "Sage Dinner", venue: "quinta", track: "community", speakers: [], desc: "Dinner. Candlelight. The people who came to go all the way, gathered around one table.", note: "Lunch provided for Pilgrims during the day." },
+  { id: "d2-04", day: 2, start: "19:00", end: "19:30", title: "Gates Opening · Quinta São José", venue: "quinta", track: "community", speakers: [], desc: "As the sun falls, the inner circle is taken to a location revealed only to those who are here. A former Templar residence. Candlelight. The people who just spent two days unveiling the geometry of the cosmos, the secrets beneath Giza, and the sacred soul of Portugal, will gather over food, over ritual, in a place that has held secrets before and knows how to keep them.", note: "Location: Quinta São José. Details shared with Pilgrims." },
+  { id: "d2-05", day: 2, start: "19:30", end: "20:30", title: "World Premiere · Robert Edward Grant Art Exhibition", venue: "quinta", track: "wisdom", speakers: ["reg"], desc: "The world premiere of Robert Edward Grant's art exhibition — an unveiling at the intersection of sacred geometry, light, and the cosmos. An evening no one who is here will forget." },
+  { id: "d2-06", day: 2, start: "20:30", end: "23:00", title: "Sage Dinner", venue: "quinta", track: "community", speakers: [], desc: "Dinner. Candlelight. The people who came to go all the way, gathered around one table. The conversation that began beneath the stars above Peninha continues here — over food, over ritual, in a Templar residence that knows how to hold a secret.", note: "Closing at 23h." },
 
   // ========== Day 3 — Tuesday, May 5 — The New Renaissance Begins Here ==========
 
@@ -198,7 +199,7 @@ export const FE_DAYS = [
 ];
 
 // "Now" — pinned to a moment that lights up the Giza premiere on the Sanctum Stage.
-export const FE_NOW = { day: 1, time: "14:25" };
+export const FE_NOW = { day: 2, time: "08:00" };
 
 export const FE_toMinutes = (hhmm) => {
   const [h, m] = hhmm.split(":").map(Number);

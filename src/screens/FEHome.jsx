@@ -58,13 +58,36 @@ export const FEHome = ({ savedSet, onToggle, onOpen, onOpenPerson, variant, setT
   const upcoming = FE_upcomingWithin(now, 60);
   const todaysSpeakers = FE_todaysSpeakers(now);
 
+  const heroTitles = {
+    1: <><em>The gates</em> are open.</>,
+    2: <>The <em>Pilgrimage</em> begins.</>,
+    3: <>The <em>New Renaissance</em> starts here.</>,
+  };
+  const heroSubs = {
+    1: "SANTO ISIDORO · ERICEIRA",
+    2: "SINTRA · PENINHA",
+    3: "ERICEIRA · SHANTI SPACE",
+  };
+
   return (
     <div className="fe-scroll">
       <div className="fe-hero">
         <div className="fe-hero-eyebrow"><span className="dot" />{day.long} · {now.time}</div>
-        <h1 className="fe-hero-title">The gates are <em>open</em>.</h1>
-        <div className="fe-hero-time">SANTO ISIDORO · ERICEIRA · {now.time}</div>
+        <h1 className="fe-hero-title">{heroTitles[now.day] ?? heroTitles[1]}</h1>
+        <div className="fe-hero-time">{heroSubs[now.day] ?? heroSubs[1]} · {now.time}</div>
       </div>
+
+      {/* Day 2 — Meeting Point alert */}
+      {now.day === 2 && (
+        <div className="fe-alert-meeting">
+          <div className="fe-alert-meeting-icon">📍</div>
+          <div className="fe-alert-meeting-body">
+            <div className="fe-alert-meeting-title">Day 2 · Meeting Points</div>
+            <div className="fe-alert-meeting-line"><strong>8h15</strong> — Ribeira D'Ilhas, at the restaurant. Meet Manuel Gandra. <em>Please arrive early to park.</em></div>
+            <div className="fe-alert-meeting-line"><strong>10h30</strong> — Peninha Parking Area · <a href="https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8" target="_blank" rel="noopener noreferrer">Google Maps →</a></div>
+          </div>
+        </div>
+      )}
 
       {/* Happening Now — only shown when sessions are actually live */}
       {live.length > 0 && (

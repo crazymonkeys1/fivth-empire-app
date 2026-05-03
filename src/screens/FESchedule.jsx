@@ -150,7 +150,8 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {byVenue[vid].map(s => (
                   <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={onOpen}
-                    isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin} />
+                    isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin}
+                    isPast={day < now.day || (day === now.day && FE_toMinutes(s.end) <= nowMin)} />
                 ))}
               </div>
             </div>
@@ -183,7 +184,8 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {sessions.filter(s => s.venue === v.id).sort((a,b) => a.start.localeCompare(b.start)).map(s => (
                     <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={onOpen}
-                      isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin} />
+                      isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin}
+                    isPast={day < now.day || (day === now.day && FE_toMinutes(s.end) <= nowMin)} />
                   ))}
                 </div>
               </div>
@@ -200,7 +202,8 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {sessions.filter(s => s.track === t.id).sort((a,b) => a.start.localeCompare(b.start)).map(s => (
                     <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={onOpen}
-                      isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin} />
+                      isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin}
+                    isPast={day < now.day || (day === now.day && FE_toMinutes(s.end) <= nowMin)} />
                   ))}
                 </div>
               </div>
@@ -222,7 +225,8 @@ export const FESchedule = ({ savedSet, onToggle, onOpen, variant, themeBtn }) =>
                   <div className="fe-time-content">
                     {groups[t].map(s => (
                       <FESessionCard key={s.id} session={s} savedSet={savedSet} onToggle={onToggle} onOpen={onOpen}
-                        isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin} />
+                        isLive={day === now.day && FE_toMinutes(s.start) <= nowMin && FE_toMinutes(s.end) > nowMin}
+                    isPast={day < now.day || (day === now.day && FE_toMinutes(s.end) <= nowMin)} />
                     ))}
                   </div>
                 </div>
