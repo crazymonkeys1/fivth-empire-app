@@ -94,10 +94,21 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
         ) : tab === "home" ? (
           <>
             <FETopBar
-              left={themeBtn}
+              left={
+                <button className="fe-iconbtn" onClick={() => setStack(s => [...s, { type: "backstage" }])} aria-label="Backstage" title="Backstage">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
+                    <rect x="3" y="6" width="18" height="12" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="7" y1="6" x2="7" y2="3" /><line x1="17" y1="6" x2="17" y2="3" />
+                  </svg>
+                </button>
+              }
               sub="May 3—5, 2026 · Portugal"
               title={<span>The <em>FiVth</em></span>}
-              right={<button className="fe-iconbtn" onClick={() => setStack(s => [...s, { type: "map" }])} aria-label="Open map" title="Field map"><FEIcon name="map" size={16} /></button>}
+              right={
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  {themeBtn}
+                  <button className="fe-iconbtn" onClick={() => setStack(s => [...s, { type: "map" }])} aria-label="Open map" title="Field map"><FEIcon name="map" size={16} /></button>
+                </div>
+              }
             />
             <FEHome savedSet={savedSet} onToggle={onToggle} onOpen={onOpenSession} onOpenPerson={onOpenPerson} onOpenPartner={onOpenPartner} variant={variant} setTab={setTab} />
           </>
