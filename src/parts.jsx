@@ -33,21 +33,26 @@ export const FESessionCard = ({ session, savedSet, onToggle, onOpen, isLive }) =
   );
 };
 
+const avatarSrc = (image) => image
+  ? (image.startsWith('http') ? image : `/speakers/${image}`)
+  : null;
+
 export const FEAvatar = ({ person, size = "md" }) => {
+  const src = avatarSrc(person.image);
   if (size === "sm") {
     return (
-      <div className="ring" style={person.image ? { overflow: "hidden" } : {}}>
-        {person.image
-          ? <img src={`/speakers/${person.image}`} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+      <div className="ring" style={src ? { overflow: "hidden" } : {}}>
+        {src
+          ? <img src={src} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           : <div className="initials">{person.initials}</div>
         }
       </div>
     );
   }
   return (
-    <div className={`fe-avatar${size === "lg" ? " lg" : ""}`} style={person.image ? { padding: 0, overflow: "hidden" } : {}}>
-      {person.image
-        ? <img src={`/speakers/${person.image}`} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+    <div className={`fe-avatar${size === "lg" ? " lg" : ""}`} style={src ? { padding: 0, overflow: "hidden" } : {}}>
+      {src
+        ? <img src={src} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         : person.initials
       }
     </div>
