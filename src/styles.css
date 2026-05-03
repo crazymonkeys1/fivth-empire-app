@@ -1691,16 +1691,25 @@ html, body, #root {
   max-height: 100%;
   object-fit: contain;
 }
-/* Full-width logo containers (backstage + bora) */
+/* Full-width logo containers — zero padding, no decorations, true fill */
 .fe-partner-logo--full {
-  padding: 0;
+  padding: 0 !important;
   overflow: hidden;
+  width: 100%;
+}
+.fe-partner-logo--full::before,
+.fe-partner-logo--full::after {
+  display: none; /* suppress corner-tick pseudo-elements */
 }
 .fe-partner-hero--full {
-  padding: 0;
+  padding: 0 !important;
   overflow: hidden;
 }
-/* Backstage — deep dark bg, text logo fills the slot */
+.fe-partner-hero--full::before,
+.fe-partner-hero--full::after {
+  display: none;
+}
+/* Backstage — deep dark bg fills the full slot */
 .fe-partner-logo--bs,
 .fe-partner-hero--bs {
   background: #0c0b14;
@@ -1719,14 +1728,28 @@ html, body, #root {
 /* ── Typographic BACK/STAGE logo ── */
 .bs-typo-logo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;          /* icon ← → text stack */
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 14px;
   width: 100%;
   height: 100%;
-  padding: 18px 24px;
+  padding: 0 24px;
   box-sizing: border-box;
+}
+/* The SVG star icon */
+.bs-typo-icon {
+  height: 34px;
+  width: auto;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+/* Text column */
+.bs-typo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
 }
 .bs-typo-back {
   font-family: var(--fe-ui);
@@ -1735,9 +1758,13 @@ html, body, #root {
   font-style: italic;
   letter-spacing: -0.03em;
   line-height: 1;
-  /* Off-white — raw, editorial, alive */
   color: #f0ece4;
   text-shadow: 0 0 40px rgba(255,200,100,0.18);
+}
+/* Horizontally-mirrored "A" */
+.bs-typo-flip {
+  display: inline-block;
+  transform: scaleX(-1);
 }
 .bs-typo-rule {
   width: 36px;
@@ -1750,10 +1777,11 @@ html, body, #root {
   letter-spacing: 0.55em;
   text-transform: uppercase;
   color: rgba(240,236,228,0.45);
-  padding-left: 0.55em; /* optical offset from tracking */
+  padding-left: 0.55em;
 }
 /* Hero (detail page) — bigger */
-.bs-typo-logo--hero { padding: 32px 36px; gap: 8px; }
+.bs-typo-logo--hero { gap: 20px; }
+.bs-typo-logo--hero .bs-typo-icon { height: 56px; opacity: 0.8; }
 .bs-typo-logo--hero .bs-typo-back { font-size: 52px; }
 .bs-typo-logo--hero .bs-typo-rule { width: 56px; }
 .bs-typo-logo--hero .bs-typo-stage { font-size: 10px; letter-spacing: 0.6em; }
