@@ -27,6 +27,30 @@ export const FE_VENUES = {
     walk: "8 min walk from Sanctum",
     color: "root",
   },
+  peninha: {
+    id: "peninha",
+    name: "Sanctuary of Peninha",
+    subtitle: "Sacred Pilgrimage",
+    location: "Sintra · high above the Atlantic",
+    walk: "Meet at Ribeira D'Ilhas 8h15, then Peninha parking at 10h30",
+    color: "peninha",
+  },
+  quinta: {
+    id: "quinta",
+    name: "Quinta São José",
+    subtitle: "Sage's Diner",
+    location: "Former Templar residence · location revealed on the day",
+    walk: "Details shared with Pilgrims",
+    color: "quinta",
+  },
+  shanti: {
+    id: "shanti",
+    name: "Shanti Space",
+    subtitle: "The New Renaissance",
+    location: "Shanti Space · Ericeira",
+    walk: "Details shared with attendees",
+    color: "shanti",
+  },
 };
 
 export const FE_TRACKS = {
@@ -83,6 +107,14 @@ export const FE_PEOPLE = [
   { id: "juliette", name: "Juliette Invigor", role: "DJ", initials: "JI", bio: "Holds the late dancefloor on the Root Stage.", tag: "Sound & Frequency" },
   { id: "joanna", name: "Joanna Lewins", role: "DJ", initials: "JL", bio: "Holds the late dancefloor on the Root Stage.", tag: "Sound & Frequency" },
   { id: "avishag", name: "Avishag Gaya", role: "Movement guide", initials: "AV", bio: "Holds the late dancefloor on the Root Stage with movement as prayer.", tag: "Sound & Frequency" },
+
+  // ===== Day 2 & 3 =====
+  { id: "manuel", name: "Manuel Gandra", role: "Guide · Ribeira D'Ilhas", initials: "MG", bio: "Local guide leading the morning walk from Ribeira D'Ilhas to the Sanctuary of Peninha.", tag: "Pilgrimage" },
+  { id: "cristina", name: "Cristina Moreira", role: "Sacred sites · ceremonial facilitator", initials: "CM", bio: "Leads the ceremonial activation at the Sanctuary of Peninha — a sacred site high above the Atlantic that has held the memory of the Sacred Feminine for centuries.", tag: "Ritual & Embodiment" },
+  { id: "luciano", name: "Luciano", role: "Ceremonial facilitator", initials: "LU", bio: "Co-facilitates the ceremonial activation at the Sanctuary of Peninha.", tag: "Ritual & Embodiment" },
+  { id: "alma", name: "Alma", role: "Ceremonial facilitator", initials: "AL", bio: "Co-facilitates the ceremonial activation at the Sanctuary of Peninha.", tag: "Ritual & Embodiment" },
+  { id: "carl", name: "Carl Hayden Smith", role: "Museum of Consciousness", initials: "CS", bio: "Co-opens the final morning with a live vocal activation and music — a ceremony of sound that lands what the last two days have moved.", tag: "Sound & Frequency" },
+  { id: "courtney", name: "Courtney Force", role: "Breathwork · sound journey", initials: "CF", bio: "Guides the Breath and Sound Journey alongside Luke Kohen on the final afternoon.", tag: "Ritual & Embodiment" },
 ];
 
 export const FE_PEOPLE_BY_ID = Object.fromEntries(FE_PEOPLE.map(p => [p.id, p]));
@@ -136,15 +168,33 @@ export const FE_SESSIONS = [
   { id: "ro12", day: 1, start: "20:00", end: "22:00", title: "DJ set & Movement", venue: "root", track: "sound", speakers: ["juliette", "joanna", "avishag"], desc: "Juliette Invigor, Joanna Lewins, Avishag Gaya · the late dancefloor." },
   { id: "ro13", day: 1, start: "22:00", end: "22:30", title: "Closing Ceremony", venue: "root", track: "ritual", speakers: [], desc: "We close the field together." },
 
-  // ========== Day 2 — Monday, May 4 — TBD ==========
+  // ========== Day 2 — Monday, May 4 — The Sanctuary of Peninha ==========
 
-  // ========== Day 3 — Tuesday, May 5 — TBD ==========
+  // Morning pilgrimage — Sintra
+  { id: "d2-01", day: 2, start: "08:30", end: "10:30", title: "Ribeira D'Ilhas · Morning Walk", venue: "peninha", track: "ritual", speakers: ["manuel"], desc: "Meet Manuel Gandra at the restaurant at Ribeira D'Ilhas. Please arrive 15 min early to park and reach the meeting point.", note: "Arrive by 8h15 to park. Meet at the restaurant." },
+  { id: "d2-02", day: 2, start: "10:30", end: "11:00", title: "Arrival at Peninha · Meeting Point", venue: "peninha", track: "ritual", speakers: [], desc: "Meet at the Peninha parking area. High above the Atlantic, where the wind never stops and the horizon stretches to the edge of the known world.", note: "Peninha parking area — see Google Maps link." },
+  { id: "d2-03", day: 2, start: "11:00", end: "14:30", title: "Ancient Sacred Sites & Ceremonial Activation", venue: "peninha", track: "ritual", speakers: ["cristina", "reachel", "luciano", "alma"], desc: "The Sanctuary of Peninha is where the Sacred Feminine refused to leave. Where the same man who built Quinta da Regaleira — with its initiation wells and Grail symbolism — came at the end of his life and never finished what he started. Cristina Moreira, Reachel Singh, Luciano and Alma lead the activation." },
+
+  // Evening — Quinta São José
+  { id: "d2-04", day: 2, start: "19:00", end: "19:30", title: "Gates Opening · Quinta São José", venue: "quinta", track: "community", speakers: [], desc: "As the sun falls, the inner circle is taken to a location revealed only to those who are here. A former Templar residence. Candlelight. The people who just spent two days unveiling the geometry of the cosmos gather over food, over ritual, in a place that has held secrets before and knows how to keep them.", note: "Location revealed to Pilgrims on the day." },
+  { id: "d2-05", day: 2, start: "19:30", end: "20:30", title: "World Premiere · Robert Edward Grant Art Exhibition", venue: "quinta", track: "wisdom", speakers: ["reg"], desc: "The world premiere of Robert Edward Grant's art exhibition. An unveiling at the intersection of geometry, light, and the sacred." },
+  { id: "d2-06", day: 2, start: "20:30", end: "23:00", title: "Sage Dinner", venue: "quinta", track: "community", speakers: [], desc: "Dinner. Candlelight. The people who came to go all the way, gathered around one table.", note: "Lunch provided for Pilgrims during the day." },
+
+  // ========== Day 3 — Tuesday, May 5 — The New Renaissance Begins Here ==========
+
+  { id: "d3-01", day: 3, start: "10:00", end: "11:00", title: "Museum of Consciousness · Vocal Activation", venue: "shanti", track: "sound", speakers: ["reachel", "carl"], desc: "The day begins in the body, in the breath, and in the voice. Reachel Singh and Carl Hayden Smith open the final morning with a live vocal activation and music — a ceremony of sound that settles what the last two days have moved and arrives everyone, fully, for what is about to unfold." },
+  { id: "d3-02", day: 3, start: "11:00", end: "12:30", title: "Breaking Bread · The Closing Brunch", venue: "shanti", track: "community", speakers: [], desc: "The closing brunch. Space for the questions that did not fit on the main stage and the conversations that the stage could not hold." },
+  { id: "d3-03", day: 3, start: "12:30", end: "14:00", title: "The Unified Field · Co-Creation Circles", venue: "shanti", track: "community", speakers: ["lucian"], desc: "What do we actually build from here? The inner circle breaks into small groups — each with a facilitator, each with one question. A living prototype for the New Renaissance — the people who came to go all the way, in the same room, deciding together what comes next and who they become in the building of it. What begins here does not end here.", note: "Facilitated by Lucian Tarnowski." },
+  { id: "d3-04", day: 3, start: "14:15", end: "15:15", title: "Breath and Sound Journey", venue: "shanti", track: "ritual", speakers: ["luke", "courtney"], desc: "Luke Kohen and Courtney Force guide a breath and sound journey." },
+  { id: "d3-05", day: 3, start: "15:30", end: "16:30", title: "Becoming Who You Truly Are · Living a Miraculous Life", venue: "shanti", track: "wisdom", speakers: ["shani"], desc: "Ego busting, potential boosting, alignment enhancing. A one-hour workshop grounded in tools, frameworks, and principles from the ancient wisdom of Kabbalah.", note: "Shani Leher." },
+  { id: "d3-06", day: 3, start: "18:30", end: "19:30", title: "The Golden Hour · Sunset & Live Music", venue: "shanti", track: "sound", speakers: ["jack", "reachel"], desc: "Jack Weaver, Reachel Singh and guests. The golden hour — live music as the sun goes down over the last evening of the FiVth." },
+  { id: "d3-07", day: 3, start: "19:30", end: "21:00", title: "Epic Party · DJ Set", venue: "shanti", track: "sound", speakers: [], desc: "The FiVth does not end. It continues — in every person who carries it home. The last night together with sacred song and a sacred party." },
 ];
 
 export const FE_DAYS = [
   { n: 1, label: "Sun", date: "May 3", long: "Sunday · May 3",   title: "The FiVth" },
-  { n: 2, label: "Mon", date: "May 4", long: "Monday · May 4",   title: "Day Two" },
-  { n: 3, label: "Tue", date: "May 5", long: "Tuesday · May 5",  title: "Day Three" },
+  { n: 2, label: "Mon", date: "May 4", long: "Monday · May 4",   title: "The Pilgrimage" },
+  { n: 3, label: "Tue", date: "May 5", long: "Tuesday · May 5",  title: "The New Renaissance" },
 ];
 
 // "Now" — pinned to a moment that lights up the Giza premiere on the Sanctum Stage.
