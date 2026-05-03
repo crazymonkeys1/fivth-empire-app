@@ -95,11 +95,8 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
           <>
             <FETopBar
               left={
-                <button className="fe-iconbtn" onClick={() => setStack(s => [...s, { type: "backstage" }])} aria-label="Backstage" title="Backstage">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round">
-                    <path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" />
-                    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
-                  </svg>
+                <button className="fe-bs-iconbtn" onClick={() => setStack(s => [...s, { type: "backstage" }])} aria-label="Backstage" title="Backstage">
+                  <img src="/assets/backstage-icon.svg" width="22" height="22" alt="Backstage" className="fe-bs-icon-img" />
                 </button>
               }
               sub="May 3—5, 2026 · Portugal"

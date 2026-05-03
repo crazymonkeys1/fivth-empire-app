@@ -175,6 +175,45 @@ html, body, #root {
 .fe-iconbtn:hover { color: var(--fe-gold); }
 .fe-iconbtn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; }
 
+/* ── Backstage header icon ── */
+@keyframes bs-nudge {
+  0%, 85%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  87%  { transform: translateY(-1.5px) rotate(-3deg) scale(1.05); }
+  90%  { transform: translateY(0.5px) rotate(2deg) scale(1.01); }
+  93%  { transform: translateY(-0.5px) rotate(-1deg) scale(1); }
+  96%  { transform: translateY(0) rotate(0deg) scale(1); }
+}
+.fe-bs-iconbtn {
+  width: 36px; height: 36px;
+  border: none; background: transparent;
+  display: grid; place-items: center;
+  cursor: pointer; padding: 0;
+}
+.fe-bs-icon-img {
+  display: block;
+  opacity: 0.52;
+  transition: opacity 0.18s ease, filter 0.18s ease, transform 0.12s ease;
+  animation: bs-nudge 10s ease-in-out infinite;
+}
+.fe-bs-iconbtn:hover .fe-bs-icon-img {
+  opacity: 1;
+  filter: sepia(1) saturate(5) brightness(1.1) hue-rotate(5deg);
+  animation-play-state: paused;
+}
+.fe-bs-iconbtn:active .fe-bs-icon-img {
+  transform: scale(0.86);
+  opacity: 0.75;
+  animation-play-state: paused;
+}
+.theme-parchment .fe-bs-icon-img {
+  filter: invert(1);
+  opacity: 0.48;
+}
+.theme-parchment .fe-bs-iconbtn:hover .fe-bs-icon-img {
+  filter: invert(1) sepia(1) saturate(3) brightness(0.8);
+  opacity: 1;
+}
+
 /* ============== TAB BAR ============== */
 .fe-tabbar {
   display: grid;
@@ -645,7 +684,8 @@ html, body, #root {
 .fe-tb-pop {
   position: absolute;
   top: calc(100% + 8px);
-  left: 0;
+  right: 0;
+  left: auto;
   min-width: 200px;
   background: var(--fe-bg);
   border: 1px solid var(--fe-line-strong);
