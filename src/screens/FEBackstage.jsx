@@ -7,7 +7,7 @@ export const FEBackstage = ({ onBack, backBtn }) => {
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <FETopBar
         left={backBtn}
-        sub="Made with Backstage"
+        sub="Backstage Studio"
       />
       <div className="fe-scroll fe-bs-page">
         <div className="fe-bs-logo" aria-label="Backstage">
