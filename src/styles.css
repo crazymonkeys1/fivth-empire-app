@@ -1635,6 +1635,13 @@ html, body, #root {
   max-height: 100%;
   object-fit: contain;
 }
+.fe-partner-hero--mark {
+  flex-direction: column;
+  height: 200px;
+}
+.fe-partner-logo--mark {
+  background: var(--fe-bg);
+}
 .fe-partner-eyebrow {
   font-family: var(--fe-mono);
   font-size: 10px;
