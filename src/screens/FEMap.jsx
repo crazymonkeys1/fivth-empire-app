@@ -4,7 +4,7 @@ import { FETopBar } from '../parts.jsx';
 import { FE_VENUES } from '../data.js';
 import { useClock } from '../ClockContext.jsx';
 
-const PENINHA_GMAPS = "https://maps.app.goo.gl/TVcyjRbrrRQbS8AR8";
+const PENINHA_GMAPS = "https://maps.app.goo.gl/nrjMxUVG9AZRs3JN9";
 const RIBEIRA_GMAPS = "https://www.google.com/maps/place//data=!4m2!3m1!1s0xd1f26fbeb6444e5:0xdf1cdd4d55085ee2?sa=X&ved=1t:8290&ictx=111";
 const VENUE_ORDER = ["peninha", "quinta", "shanti", "sanctum", "pessoa", "root"];
 
