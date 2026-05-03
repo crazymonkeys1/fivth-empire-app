@@ -1581,6 +1581,10 @@ html, body, #root {
 .fe-partner-card:hover {
   border-color: var(--fe-gold);
 }
+/* Backstage card spans full width when it's the sole item in the last row */
+.fe-partner-card--wide {
+  grid-column: 1 / -1;
+}
 .fe-partner-logo {
   height: 96px;
   display: flex;
@@ -1690,12 +1694,18 @@ html, body, #root {
 /* Full-width logo containers (backstage + bora) */
 .fe-partner-logo--full {
   padding: 0;
-  background: #0d0b09;
+  overflow: hidden;
 }
 .fe-partner-hero--full {
   padding: 0;
-  background: #0d0b09;
+  overflow: hidden;
 }
+/* Backstage — deep dark bg, text logo fills the slot */
+.fe-partner-logo--bs,
+.fe-partner-hero--bs {
+  background: #0c0b14;
+}
+/* Bora — cover photo fills the slot */
 .fe-partner-logo--cover img,
 .fe-partner-hero--cover img {
   width: 100%;
@@ -1703,27 +1713,50 @@ html, body, #root {
   object-fit: cover;
   max-width: none;
   max-height: none;
+  display: block;
 }
 
-/* Backstage logo on partner card */
+/* ── Typographic BACK/STAGE logo ── */
 .bs-typo-logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 5px;
   width: 100%;
   height: 100%;
-  padding: 18px 22px;
+  padding: 18px 24px;
+  box-sizing: border-box;
 }
-.bs-typo-img {
-  width: 64px;
-  height: 64px;
-  opacity: 0.85;
-  object-fit: contain;
+.bs-typo-back {
+  font-family: var(--fe-ui);
+  font-size: 30px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  /* Off-white — raw, editorial, alive */
+  color: #f0ece4;
+  text-shadow: 0 0 40px rgba(255,200,100,0.18);
 }
-.theme-parchment .bs-typo-img { filter: invert(1); }
-/* Hero (large) variant */
-.bs-typo-logo--hero { padding: 28px 30px; }
-.bs-typo-logo--hero .bs-typo-img { width: 100px; height: 100px; }
+.bs-typo-rule {
+  width: 36px;
+  height: 1px;
+  background: rgba(240,236,228,0.2);
+}
+.bs-typo-stage {
+  font-family: var(--fe-mono);
+  font-size: 8px;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: rgba(240,236,228,0.45);
+  padding-left: 0.55em; /* optical offset from tracking */
+}
+/* Hero (detail page) — bigger */
+.bs-typo-logo--hero { padding: 32px 36px; gap: 8px; }
+.bs-typo-logo--hero .bs-typo-back { font-size: 52px; }
+.bs-typo-logo--hero .bs-typo-rule { width: 56px; }
+.bs-typo-logo--hero .bs-typo-stage { font-size: 10px; letter-spacing: 0.6em; }
 .fe-partner-eyebrow {
   font-family: var(--fe-mono);
   font-size: 10px;

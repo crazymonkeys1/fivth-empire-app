@@ -2,9 +2,12 @@ import React from 'react';
 import { FETopBar, FEBackstageFooter } from '../parts.jsx';
 import { FE_PARTNERS, FE_PARTNERS_BY_ID } from '../data.js';
 
+// Typographic BACK/STAGE logo — rendered purely in CSS/text
 const BSTypoLogo = ({ hero = false }) => (
   <div className={`bs-typo-logo${hero ? " bs-typo-logo--hero" : ""}`}>
-    <img src="/assets/backstage-icon.svg" alt="Backstage" className="bs-typo-img" />
+    <div className="bs-typo-back">BACK</div>
+    <div className="bs-typo-rule" />
+    <div className="bs-typo-stage">STAGE</div>
   </div>
 );
 
