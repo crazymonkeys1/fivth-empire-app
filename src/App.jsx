@@ -96,7 +96,7 @@ const FEApp = ({ variant = "A", theme = "midnight", typePair = "default" }) => {
             <FETopBar
               left={
                 <button className="fe-bs-iconbtn" onClick={() => setStack(s => [...s, { type: "backstage" }])} aria-label="Backstage" title="Backstage">
-                  <img src="/assets/backstage-icon.svg" width="22" height="22" alt="Backstage" className="fe-bs-icon-img" />
+                  <img src="/assets/backstage-icon.svg" width="26" height="26" alt="Backstage" className="fe-bs-icon-img" />
                 </button>
               }
               sub="May 3—5, 2026 · Portugal"

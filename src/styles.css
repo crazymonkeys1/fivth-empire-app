@@ -193,7 +193,7 @@ html, body, #root {
   display: block;
   opacity: 0.52;
   transition: opacity 0.18s ease, filter 0.18s ease, transform 0.12s ease;
-  animation: bs-nudge 10s ease-in-out infinite;
+  animation: bs-nudge 8s ease-in-out infinite;
 }
 .fe-bs-iconbtn:hover .fe-bs-icon-img {
   opacity: 1;
@@ -1303,16 +1303,20 @@ html, body, #root {
 }
 
 /* ============== HOME · BACKSTAGE FOOTER ============== */
+.fe-backstage-footer-wrap {
+  /* sits above the fixed tab bar — never hidden */
+  padding: 0 22px calc(8px + env(safe-area-inset-bottom, 0px));
+  margin-top: 4px;
+}
 .fe-backstage-footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 4px 22px 28px;
   padding: 14px 16px;
   background: transparent;
   border: 0;
   border-top: 1px solid var(--fe-line);
-  width: calc(100% - 44px);
+  width: 100%;
   cursor: pointer;
   color: var(--fe-fg-3);
   font-family: var(--fe-ui);

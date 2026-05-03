@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "fivth-app",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd '/Users/jordansuccar/Documents/🙈 Crazy Monkey/Orbite /Fivth/fivth-app' && npm run dev -- --port 5173"],
       "port": 5173
     }
   ]

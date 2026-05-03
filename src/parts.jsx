@@ -78,11 +78,13 @@ const BSIcon = ({ size = 16 }) => (
 );
 
 export const FEBackstageFooter = ({ onClick }) => (
-  <button className="fe-backstage-footer" onClick={onClick}>
-    <span className="bs-mark" aria-hidden="true"><BSIcon size={16} /></span>
-    <span className="bs-text">Made with <em>Backstage</em></span>
-    <span className="bs-arrow">→</span>
-  </button>
+  <div className="fe-backstage-footer-wrap">
+    <button className="fe-backstage-footer" onClick={onClick}>
+      <span className="bs-mark" aria-hidden="true"><BSIcon size={16} /></span>
+      <span className="bs-text">Made with ❤️ by <em>Backstage</em></span>
+      <span className="bs-arrow">→</span>
+    </button>
+  </div>
 );
 
 export const FETabBar = ({ tab, onChange, hidden }) => {
